@@ -1,0 +1,564 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Collec",
+				"Collections"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "(function() {\n\nwindow.App = {\n	Models: {},\n	Collections: {},\n	Views: {},\n	Router: {}\n};\n\nvar vent = _.extend({},Backbone.Events);	\n\nApp.Router = Backbone.Router.extend({\n	routes: {\n		'':'index',\n		'about':'about',\n		'portfolio':'portfolio',\n		'explore':'explore',\n		'contact':'contact'\n	},\n\n	index:function() {\n		console.log(\"index\");\n	},\n\n	about:function() {\n		console.log(\"about\");\n		vent.on('')\n	},\n\n	portfolio:function() {\n		console.log(\"portfolio\");\n	},\n\n	explore:function() {\n		console.log(\"explore\");\n	},\n\n	contact:function() {\n		console.log(\"contact\");\n	},\n\n	default: function(other) {\n		alert('Hmmm..not sure what you need here? You accessed to: ' + other);\n	}\n});\n\nnew App.Router;\nBackbone.history.start();\n\n})();",
+			"file": "app/scripts/app.js",
+			"file_size": 667,
+			"file_write_time": 130061267983506260,
+			"settings":
+			{
+				"buffer_size": 723,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html>\n<!--[if lt IE 7]>      <html class=\"no-js lt-ie9 lt-ie8 lt-ie7\"> <![endif]-->\n<!--[if IE 7]>         <html class=\"no-js lt-ie9 lt-ie8\"> <![endif]-->\n<!--[if IE 8]>         <html class=\"no-js lt-ie9\"> <![endif]-->\n<!--[if gt IE 8]><!--> <html class=\"no-js\"> <!--<![endif]-->\n<head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\n    <title></title>\n    <meta name=\"description\" content=\"\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->\n\n\n    <link rel=\"stylesheet\" href=\"styles/main.css\">\n    <script src=\"scripts/vendor/modernizr.min.js\"></script>\n\n\n</head>\n<body>\n\n\n    <div class=\"navbar\">\n      <div class=\"navbar-inner\">\n        <a class=\"brand\" href=\"#\">Title</a>\n        <ul class=\"nav pull-right\">\n          <li><a href=\"#about\">About</a></li>\n          <li><a href=\"#portfolio\">Portfolio</a></li>\n          <li><a href=\"#explore\">Explore</a></li>\n          <li><a href=\"#contact\">Contact</a></li>\n      </ul>\n  </div>\n</div>\n<!-- <div class=\"container\"> -->\n    <!-- <div class=\"row\"> -->\n     <div class=\"container\">\n      <!-- Example row of columns -->\n      <div class=\"row\">\n        <div class=\"span2\">\n            <h4>Tweets</h4>\n            <div id=\"tweetCarousel\" class=\"carousel slide\">\n                <div class=\"carousel-inner\">\n                  <div class=\"item active\">\n                    <img src=\"images/bootstrap-mdo-sfmoma-01.jpg\" alt=\"\">\n                    <div class=\"carousel-caption\">\n                      <h4>First Thumbnail label</h4>\n                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\n                    </div>\n                  </div>\n                  <div class=\"item\">\n                    <img src=\"images/bootstrap-mdo-sfmoma-02.jpg\" alt=\"\">\n                    <div class=\"carousel-caption\">\n                      <h4>Second Thumbnail label</h4>\n                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\n                    </div>\n                  </div>\n                  <div class=\"item\">\n                    <img src=\"images/bootstrap-mdo-sfmoma-03.jpg\" alt=\"\">\n                    <div class=\"carousel-caption\">\n                      <h4>Third Thumbnail label</h4>\n                      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\n                    </div>\n                  </div>\n                </div>\n                <a class=\"left carousel-control\" href=\"#tweetCarousel\" data-slide=\"prev\">&lsaquo;</a>\n                <a class=\"right carousel-control\" href=\"#tweetCarousel\" data-slide=\"next\">&rsaquo;</a>\n              </div>    \n        </div>\n        <div class=\"span8\">\n            <h1>Wotcha!</h1>\n            <p>You now have</p>\n            <ul>\n                <li>HTML5 Boilerplate</li>\n                <li>Twitter Bootstrap</li>\n                <li>Twitter Bootstrap plugins</li>\n                <li>Support for ES6 Modules</li>\n            </ul>\n            <p>installed.</p>\n            <h3>Enjoy coding! - Yeoman</h3>\n        </div>\n        <div class=\"span2\">\n            <h4>Recommendations</h4>\n            <div id=\"recCarousel\" class=\"carousel slide\">\n                <div class=\"carousel-inner\">\n                  <div class=\"item active\">\n                    <img src=\"images/bootstrap-mdo-sfmoma-03.jpg\" alt=\"\">\n                    <div class=\"carousel-caption\">\n                      <h4>First Thumbnail label</h4>\n                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic alias!.</p>\n                    </div>\n                  </div>\n                  <div class=\"item\">\n                    <img src=\"images/bootstrap-mdo-sfmoma-01.jpg\" alt=\"\">\n                    <div class=\"carousel-caption\">\n                      <h4>Second Thumbnail label</h4>\n                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit illo?</p>\n                    </div>\n                  </div>\n                  <div class=\"item\">\n                    <img src=\"images/bootstrap-mdo-sfmoma-02.jpg\" alt=\"\">\n                    <div class=\"carousel-caption\">\n                      <h4>Third Thumbnail label</h4>\n                      <p></p>\n                    </div>\n                  </div>\n                </div>\n                <a class=\"left carousel-control\" href=\"#recCarousel\" data-slide=\"prev\">&lsaquo;</a>\n                <a class=\"right carousel-control\" href=\"#recCarousel\" data-slide=\"next\">&rsaquo;</a>\n              </div>     \n        </div>\n      </div>\n      </div>\n\n\n        <!--[if lt IE 7]>\n            <p class=\"chromeframe\">You are using an outdated browser. <a href=\"http://browsehappy.com/\">Upgrade your browser today</a> or <a href=\"http://www.google.com/chromeframe/?redirect=true\">install Google Chrome Frame</a> to better experience this site.</p>\n            <![endif]-->\n\n            <!-- Add your site or application content here -->\n\n            <!--  <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js\"></script>\n\n            <script>window.jQuery || document.write('<script src=\"scripts/vendor/jquery.min.js\"><\\/script>')</script>\n\n\n\n            <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. \n            <script>\n            // var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];\n            // (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];\n            //     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';\n            //     s.parentNode.insertBefore(g,s)}(document,'script'));\n            </script>-->\n\n\n    <!--\n    <!-- build:js scripts/plugins.js -->\n    <script src=\"components/jquery/jquery.js\"></script>\n    <script src=\"components/underscore/underscore.js\"></script>\n    <script src=\"components/backbone/backbone.js\"></script>\n    <script src=\"scripts/vendor/bootstrap/bootstrap.js\"></script>\n    <script src=\"/scripts/app.js\"></script> \n    <!-- endbuild -->\n\n    <!--\n    <script src=\"/scripts/vendor/jquery.min.js\"></script>\n    \n    <script src=\"/scripts/tweets.js\"></script>\n    // \n-->\n<script>\n    $(document).ready(function($) {\n        $('.carousel').carousel(\n        {\n          interval: 10000\n        });\n    });\n</script>\n</body>\n\n</html>",
+			"file": "app/index.html",
+			"file_size": 6725,
+			"file_write_time": 130061257708366945,
+			"settings":
+			{
+				"buffer_size": 6700,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/tim/Downloads/17-router-routes (1)/17-router-routes/js/main.js",
+			"settings":
+			{
+				"buffer_size": 625,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"snippet: con",
+				"Snippet: console-log"
+			],
+			[
+				"snippe",
+				"Snippet: databasedump"
+			],
+			[
+				"fetch",
+				"Fetch: File"
+			],
+			[
+				"gist",
+				"Gist: Insert Gist"
+			],
+			[
+				"readm",
+				"ReadmePlease"
+			],
+			[
+				"redme",
+				"ReadmePlease"
+			],
+			[
+				"copy sc",
+				"File: Copy as Tag script"
+			],
+			[
+				"tag",
+				"File: Copy as Tag style"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reindent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"gists",
+				"Gist: Insert Gist"
+			],
+			[
+				"browe ",
+				"Preferences: Browse Packages"
+			],
+			[
+				"browse pa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"dupli",
+				"File: Duplicate"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"copy as",
+				"File: Copy as Tag script"
+			],
+			[
+				"copy pa",
+				"File: Copy Path"
+			],
+			[
+				"copy ",
+				"File: Copy Path"
+			],
+			[
+				"copy",
+				"File: Copy Path"
+			],
+			[
+				"brows",
+				"Preferences: Browse Packages"
+			],
+			[
+				"side",
+				"View: Toggle Open Files in Side Bar"
+			]
+		],
+		"width": 440.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/tim/Downloads/12-todos-mini-project-with-homework/12-todos-mini-project-with-homework/js/main.js",
+		"/C/Users/tim/Dropbox/appdata/SublimeText2/Packages/User/Snippets/console-log.sublime-snippet",
+		"/C/Users/tim/Dropbox/appdata/SublimeText2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/tim/Dropbox/appdata/SublimeText2/Packages/User/Gist.sublime-settings",
+		"/C/Users/tim/AppData/Roaming/Sublime Text 2/Packages/User/Gist.sublime-settings",
+		"/C/Users/tim/AppData/Roaming/Sublime Text 2/Packages/Backbone.js/README.md",
+		"/C/Users/tim/Dropbox/appdata/SublimeText2/Packages/User/Snippets/emailwithorg - Copy.sublime-snippet",
+		"/C/Users/tim/Downloads/17-router-routes/17-router-routes/js/main.js",
+		"/C/Users/tim/Dropbox/Code/tgc/app/index.html",
+		"/C/Users/tim/Dropbox/Code/tgc/app/styles/main.scss",
+		"/C/Users/tim/Dropbox/Code/tgc/test/lib/mocha/mocha.css",
+		"/C/Users/tim/Dropbox/Code/tgc/notes.txt",
+		"/C/Users/tim/Dropbox/Code/tgc/components/jquery/jquery.js",
+		"/C/Users/tim/Dropbox/Code/tgc/app/styles/main.css",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/tweets.js",
+		"/C/Users/tim/Dropbox/Code/tgc/app/styles/bootstrap.css",
+		"/C/Users/tim/Dropbox/Code/tgc/app/styles/compass_twitter_bootstrap/_mixins.scss",
+		"/C/Users/tim/AppData/Roaming/Sublime Text 2/Packages/jQuery Snippets pack/README.md",
+		"/C/Users/tim/AppData/Roaming/Sublime Text 2/Packages/jQuery Snippets pack/$_ajax.sublime-snippet",
+		"/C/Users/tim/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/tim/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/app.js",
+		"/C/Users/tim/Downloads/final-tweet-project/final-tweet-project/app/index.html",
+		"/C/Users/tim/Dropbox/Code/tgc/Gruntfile.js",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/coffee/app.coffee",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/coffee/test.coffee",
+		"/C/Users/tim/Downloads/final-tweet-project/final-tweet-project/Gruntfile.js",
+		"/C/Users/tim/Dropbox/Code/tgc/temp/styles/main.css",
+		"/C/Users/tim/Downloads/final-tweet-project/final-tweet-project/app/scripts/tweets.js",
+		"/C/Users/tim/Downloads/final-tweet-project/final-tweet-project/app/scripts/app.js",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/coffee/person.coffee",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/coffee/app.js",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/main.js",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/coffee/tweets.coffee",
+		"/C/Users/tim/Downloads/final-tweet-project/final-tweet-project/app/scripts/coffee/app.coffee",
+		"/C/Users/tim/Downloads/final-tweet-project/final-tweet-project/app/scripts/coffee/tweets.coffee",
+		"/C/Users/tim/Dropbox/Code/tgc/app/components/underscore/underscore.js",
+		"/C/Users/tim/Dropbox/Code/tgc/temp/scripts/coffee/tweets.js",
+		"/C/Users/tim/Dropbox/Code/tgc/app/404.html",
+		"/C/Users/tim/Downloads/final-tweet-project/final-tweet-project/app/404.html",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/coffee/app/scripts/tweets.coffee",
+		"/C/Users/tim/Dropbox/Code/tgc/temp/scripts/coffee/app/scripts/tweets.js",
+		"/C/Users/tim/Dropbox/Code/tgc/test/index.html",
+		"/C/Users/tim/Dropbox/Code/tgc/temp/scripts/coffee/app/scripts/coffee/tweets.js",
+		"/C/Users/tim/Dropbox/Code/tgc/tweets.coffee",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/coffee/app/scripts/coffee/tweets.coffee",
+		"/C/Users/tim/Dropbox/Code/tgc/app/scripts/coffee/app/scripts/coffee/tweets.js",
+		"/C/Users/tim/AppData/Roaming/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+		"/C/Users/tim/Downloads/final-tweet-project/final-tweet-project/test/index.html",
+		"/C/Users/tim/Dropbox/Code/tgc/test/runner/mocha.js",
+		"/C/Users/tim/Dropbox/Code/tgc/825373/.gitignore",
+		"/C/Users/tim/Dropbox/Code/tgc/.gitattributes",
+		"/C/Users/tim/Dropbox/Code/tgc/.gitignore",
+		"/C/Users/tim/Dropbox/Code/tgc/person.coffee",
+		"/C/Users/tim/Dropbox/Code/tgc/main.sass",
+		"/C/Users/tim/Dropbox/Code/tgc/app/styles/main.sass",
+		"/C/Users/tim/Downloads/TFTP Boot Recovery/TFTPServerMT.ini",
+		"/C/Users/tim/Desktop/t/Windows.XP.USB.Stick.Edition-TRWINS/trwins.nfo",
+		"/C/Users/tim/a",
+		"/C/Dev/yeoman/npm-debug.log",
+		"/C/Users/tim/Desktop/tg/ls_series-164-mod1/MOD-ChangeLog.txt",
+		"/C/Users/tim/Desktop/t/Windows.XP.USB.Stick.Edition-TRWINS - Copy/file_id.diz",
+		"/C/Users/tim/Downloads/TFTP Boot Recovery/TFTPServerMT.log",
+		"/C/Users/tim/Downloads/ls_series-164-mod1/ls_series-164-mod1/linkstation_version.txt",
+		"/C/Users/tim/Downloads/ls_series-164-mod1/ls_series-164-mod1/MOD-ChangeLog.txt",
+		"/C/Users/tim/Downloads/acp_commander.jar",
+		"/C/Program Files/eclipse/eclipse/eclipse.ini",
+		"/C/Users/tim/Downloads/ls_series-164-mod1/ls_series-164-mod1/LSUpdater.ini",
+		"/C/Program Files/Sublime Text 2/_ssl.pyd"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"back",
+			"index",
+			"'':'',\n",
+			"<img src=\"images/bootstrap-mdo-s",
+			"carousel slide",
+			"tweetCarousel",
+			"[class*=\"span\"] {",
+			"assets/img",
+			"span",
+			"4\"",
+			"myCarousel",
+			"carousel",
+			"tweetCarousel",
+			"myCarousel",
+			"tweetCarousel",
+			"r",
+			"indent",
+			"respons",
+			">\n",
+			"hero-unit",
+			"render",
+			"app",
+			"(function()",
+			"(function() {",
+			"functi",
+			"wra",
+			"wrap",
+			"coffee",
+			"mocha",
+			"pass",
+			"java",
+			"ruby",
+			"\n",
+			"vm",
+			"'",
+			"\"",
+			" ",
+			"-",
+			"_",
+			"0",
+			"PM",
+			"01/21/2013  11:16 PM ",
+			"pass"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/scripts/app.js",
+					"settings":
+					{
+						"buffer_size": 723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								396,
+								396
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/index.html",
+					"settings":
+					{
+						"buffer_size": 6700,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6665,
+								6665
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1917.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/tim/Downloads/17-router-routes (1)/17-router-routes/js/main.js",
+					"settings":
+					{
+						"buffer_size": 625,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								625
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 16.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"index",
+				"tgc/app/index.html"
+			],
+			[
+				"app.",
+				"app/scripts/app.js"
+			],
+			[
+				"a.css",
+				"test/lib/mocha/mocha.css"
+			],
+			[
+				"main.",
+				"app/styles/main.scss"
+			],
+			[
+				"jquery",
+				"components/jquery/jquery.js"
+			],
+			[
+				"mixins",
+				"app/styles/compass_twitter_bootstrap/_mixins.scss"
+			],
+			[
+				"main.s",
+				"app/styles/main.scss"
+			],
+			[
+				"main.css",
+				"app/styles/main.css"
+			],
+			[
+				"boots",
+				"app/styles/bootstrap.css"
+			],
+			[
+				"bootst",
+				"app/styles/bootstrap.css"
+			],
+			[
+				"",
+				"app/scripts/tweets.js"
+			],
+			[
+				".coffee",
+				"app/scripts/coffee/app.coffee"
+			],
+			[
+				"grunt",
+				"Gruntfile.js"
+			],
+			[
+				"unders",
+				"app/components/underscore/underscore.js"
+			],
+			[
+				"ind",
+				"app/index.html"
+			],
+			[
+				".coffe",
+				"app/scripts/coffee/tweets.coffee"
+			],
+			[
+				"tweets.coffee",
+				"app/scripts/coffee/tweets.coffee"
+			],
+			[
+				"tweets",
+				"temp/scripts/coffee/tweets.js"
+			],
+			[
+				"twee",
+				"temp/scripts/coffee/tweets.js"
+			],
+			[
+				"tweets.",
+				"temp/scripts/coffee/app/scripts/tweets.js"
+			],
+			[
+				"tweet",
+				"temp/scripts/coffee/app/scripts/tweets.js"
+			],
+			[
+				"tweete",
+				"tweets.coffee"
+			],
+			[
+				"index.",
+				"test/index.html"
+			],
+			[
+				"mocha.",
+				"test/runner/mocha.js"
+			],
+			[
+				"person",
+				"app/scripts/coffee/person.coffee"
+			],
+			[
+				"inde",
+				"app/index.html"
+			],
+			[
+				"main.scss",
+				"app/styles/main.scss"
+			],
+			[
+				"app/main.js",
+				"app/scripts/main.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 259.0,
+	"status_bar_visible": true
+}
