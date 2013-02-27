@@ -5,7 +5,15 @@
 	tweets.fetch().done(function(data) {
 	  var tweetsView;
 	  tweetsView = new App.TweetsView(data).render();
-	  return $('div.left').html(tweetsView.el);
+	  
+	 //  setTimeout(function() {
+		//     $('.jcarousel').jcarousel({
+  //       // Configuration goes here
+  //   });
+		// }, 5);
+		// $('.jcarousel').jcarousel({
+		// });
+	  return $('.carousel').html(tweetsView.el);
 	});
 
 
@@ -20,7 +28,7 @@
 		default: function(module) {
 			if(module==='')module='home';
 			$('div.main div').hide();
-			$('div.main div#'+module).show();
+			$('div.main div#'+module).fadeIn();
 		}
 	});
 

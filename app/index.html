@@ -14,6 +14,7 @@
 
 
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="components/jcarousel/jcarousel.simple.css">
     <script src="scripts/vendor/modernizr.min.js"></script>
 
 
@@ -40,17 +41,63 @@
      <div class="container">
       <!-- Example row of columns -->
       <div class="row">
+        <!-- <div class="span3 left">
+        </div> -->
         <div class="span3 left">
-        </div>
-        <div class="span6 main">
-          <div id="home"><h2>Home</h2>Welcome to the site home!</div>
+          <div class="carousel-wrapper">
+                <div data-jcarousel="true" data-wrap="circular" class="carousel">
+                    <!-- <ul>
+                        <li>
+                          <img src="http://a0.twimg.com/profile_images/3281264080/3969c1c6d76b0894c7db853f5ca944a2_normal.jpeg" alt="undefined">
+                          Give your passion purpose http://t.co/XdSF1VUZ7E
+                        </li><li>
+                          <img src="http://a0.twimg.com/profile_images/3056708597/6438618743e2b2d7d663fd43412bdae8_normal.png" alt="undefined">
+                          An excellent experiment: Responsive, horizontal multi-column layouts - http://t.co/Joi5zkJhXh
+                        </li><li>
+                          <img src="http://a0.twimg.com/profile_images/3056708597/6438618743e2b2d7d663fd43412bdae8_normal.png" alt="undefined">
+                          A very detailed article on CSS gradients. Worth reading and bookmarking - http://t.co/j3zczPZp
+                        </li><li>
+                          <img src="http://a0.twimg.com/profile_images/1870530709/randfish-500px_normal.jpg" alt="undefined">
+                          Oxford comma debate is emblametic of the amazing interaction the web generates, &amp; the weaknesses, too: http://t.co/EqP0JqKi
+                        </li><li>
+                          <img src="http://a0.twimg.com/profile_images/3056708597/6438618743e2b2d7d663fd43412bdae8_normal.png" alt="undefined">
+                          New on Smashing Mag: Using White Space For Readability In HTML And CSS by @ImpressiveWebs - http://t.co/ude721ER
+                        </li><li>
+                          <img src="http://a0.twimg.com/profile_images/3056708597/6438618743e2b2d7d663fd43412bdae8_normal.png" alt="undefined">
+                          A quite eye-opening article by @philwalton: What No One Told You About Z-Index - http://t.co/5ikFWgQb
+                        </li><li>
+                          <img src="http://a0.twimg.com/profile_images/2176846885/-5-1_normal.jpeg" alt="undefined">
+                          Amazon Takes Redshift, Its Cloud-Based Data Warehouse Killer, Global http://t.co/l0txgop2 by @ingridlunden
+                        </li><li>
+                          <img src="http://a0.twimg.com/profile_images/2318548807/ybphpdnxt19u1m43zorx_normal.png" alt="undefined">
+                          Principles for Successful Button Design - @wdtuts shows you how to design awesome buttons! - http://t.co/xpwNJvqb
+                        </li><li>
+                          <img src="http://a0.twimg.com/profile_images/1847191518/twitter_profile_new_normal.png" alt="undefined">
+                          Popular: 3 Successful Entrepreneurs Share Their Productivity Secrets http://t.co/m5JOeszk
+                        </li><li>
+                          <img src="http://a0.twimg.com/profile_images/1847191518/twitter_profile_new_normal.png" alt="undefined">
+                          15 Billion-Dollar Tech Startups http://t.co/WA4NuINn via @businessinsider
+                        </li>
+
+                    </ul> -->
+                </div>
+
+                <a data-jcarousel-control="true" data-target="-=1" href="#" class="carousel-control-prev">&lsaquo;</a>
+                <a data-jcarousel-control="true" data-target="+=1" href="#" class="carousel-control-next">&rsaquo;</a>
+            </div>
+
+        <!-- <div class="span3 right">    
+        </div> -->
+      </div>
+      <div class="span6 main">
+         <div id="home"><h2>Home</h2>Welcome to the site home!</div>
           <div id="about"><h2>About</h2>About me</div>
           <div id="portfolio"><h2>Portfolio</h2>Portfolio of work</div>
           <div id="explore"><h2>Explore</h2>Here are some cool sites</div>
           <div id="contact"><h2>Contact</h2>My contact info</div>
-        </div>
-        <div class="span3 right">    
-        </div>
+      </div>
+      <div class="span3 right"></div>
+      </div>
       </div>
       </div>
 
@@ -82,6 +129,10 @@
     <script src="components/underscore/underscore.js"></script>
     <script src="components/backbone/backbone.js"></script>
     <script src="components/mustache/mustache.js"></script>
+    <!--
+    <script src="components/jcarousel/jquery.jcarousel.min.js"></script>
+    <script src="components/jcarousel/jcarousel.simple.js"></script>
+  -->
     <script src="scripts/vendor/bootstrap/bootstrap.js"></script>
     <script src="scripts/tweets.js"></script> 
     <script src="scripts/app.js"></script> 
@@ -104,27 +155,9 @@
     url: json_uri,
     format: "jsonp",
     success: function(data){
-
-
-      var data2 = data.feed.entry;
-    // var data = {
-    //     employees: [
-    //     {   firstName: "Christophe",
-    //         lastName: "Coenraets"},
-    //     {   firstName: "John",
-    //         lastName: "Smith"}
-    //     ]};
-    var template = "Recommendations:<ul>{{#entry}}" +
-                                "<li>{{gsx$rec.$t}} {{gsx$name.$t}} {{gsx$date.$t}} {{gsx$company.$t}}</li>{{/entry}}" +
-                                "</ul>";
-    var html = Mustache.to_html(template, data.feed);
-    $('.right').html(html);
-
-        // this.gsx$rec;
-        // this.gsx$name;
-        // this.gsx$date;
-        // this.gsx$company;  
-
+      var template = "Recommendations:<ul>{{#entry}}<li>{{gsx$rec.$t}} {{gsx$name.$t}} {{gsx$date.$t}} {{gsx$company.$t}}</li>{{/entry}}</ul>";
+      var html = Mustache.to_html(template, data.feed);
+      $('.right').html(html);
     }
   });
 
@@ -132,12 +165,26 @@
 
 <script>
     $(document).ready(function($) {
-        $('.carousel').carousel(
-        {
-          interval: 10000
-        });
+        
+      $(".left").bind("onDomNodeInserted", function() {
+          console.log("Element was added");
+      });
 
-        new App.Router;
+      $(".carousel").bind("DOMNodeInserted", function() {
+          console.log("Element was added2");
+        $.getScript("components/jcarousel/jquery.jcarousel.min.js", function(){
+            alert("Running test.js");
+        });
+        $.getScript("components/jcarousel/jcarousel.simple.js", function(){
+            alert("Running test.js2");
+        });
+      });
+
+      // $(".carousel").bind("change",function(e){
+      //      console.log(e);
+      // });
+
+      new App.Router;
     });
 </script>
 </body>

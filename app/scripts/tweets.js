@@ -11,7 +11,7 @@ App.TweetsCollection = (function() {
       user = 'timgiblin';
     }
     if (count == null) {
-      count = 5;
+      count = 10;
     }
     if (apiUrl == null) {
       apiUrl = 'https://api.twitter.com/1/favorites.json';
@@ -23,8 +23,7 @@ App.TweetsCollection = (function() {
   }
 
   TweetsCollection.prototype.fetch = function() {
-    console.log("" + this.apiUrl + "?screen_name=" + this.user + "&count=" + this.count + "&callback=?");
-    
+    // console.log("" + this.apiUrl + "?screen_name=" + this.user + "&count=" + this.count + "&callback=?");
     return $.getJSON("" + this.apiUrl + "?screen_name=" + this.user + "&count=" + this.count + "&callback=?");
   };
 
@@ -34,7 +33,7 @@ App.TweetsCollection = (function() {
 
 App.TweetsView = (function() {
 
-  TweetsView.prototype.el = $('<ul class="unstyled">');
+  TweetsView.prototype.el = $('<ul id="tweetCarousel" class="unstyled">');
 
   function TweetsView(tweets) {
     this.tweets = tweets;
@@ -43,7 +42,7 @@ App.TweetsView = (function() {
   TweetsView.prototype.render = function() {
     var _this = this;
     $.each(this.tweets, function(index, tweet) {
-      return _this.el.append("<li>\n  <img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name + "'>\n  " + tweet.text + "\n</li>");
+      return _this.el.append("<li>\n  <img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name + "'>\n </br> " + tweet.text + "\n</li>");
     });
     return this;
   };
