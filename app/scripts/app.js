@@ -2,18 +2,21 @@
 
 	tweets = new App.TweetsCollection;
 
+
 	tweets.fetch().done(function(data) {
 	  var tweetsView;
 	  tweetsView = new App.TweetsView(data).render();
-	  
-	 //  setTimeout(function() {
-		//     $('.jcarousel').jcarousel({
-  //       // Configuration goes here
-  //   });
-		// }, 5);
-		// $('.jcarousel').jcarousel({
-		// });
-	  return $('.carousel').html(tweetsView.el);
+	  $('.left .carousel').append(tweetsView.el);
+	  //TODO need to find better way to do this
+	  setTimeout(function() {
+        $('#tweetCarousel').jcarousel({
+            vertical: true,
+            scroll: 1
+          });
+        $('#recCarousel').jcarousel({
+            scroll: 1
+          });
+	  }, 200);
 	});
 
 

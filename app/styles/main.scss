@@ -38,133 +38,135 @@ div.main div{
 //     -ms-animation: vscroll 20s infinite;
 //     animation: vscroll 20s infinite;
 // }
-.carousel{
-body {
-    background: #F0EFE7;
-    margin: 0;
-    padding: 0;
-    font: 15px/1.5 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #4E443C;
-}
+// .carousel{
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Arvo', courier, serif;
-  text-align: center;
-  font-weight: normal;
-  text-rendering: optimizelegibility;
-}
+// body {
+//     background: #F0EFE7;
+//     margin: 0;
+//     padding: 0;
+//     font: 15px/1.5 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+//     color: #4E443C;
+// }
 
-h1 {
-    color: #4E443C;
-    font-size: 36px;
-    font-weight: bold;
-}
+// h1, h2, h3, h4, h5, h6 {
+//   font-family: 'Arvo', courier, serif;
+//   text-align: center;
+//   font-weight: normal;
+//   text-rendering: optimizelegibility;
+// }
 
-h2, h2 a {
-    color: #F14E32;
-}
+// h1 {
+//     color: #4E443C;
+//     font-size: 36px;
+//     font-weight: bold;
+// }
 
-h3, h3 a {
-  color: #0388A6;
-}
+// h2, h2 a {
+//     color: #F14E32;
+// }
 
-a {
-  color: #0388A6;
-}
+// h3, h3 a {
+//   color: #0388A6;
+// }
 
-pre {
-  border:1px solid #000;
-  overflow-x:auto;
-  background: #222;
-  color: #fff;
-  text-shadow: none;
-}
+// a {
+//   color: #0388A6;
+// }
 
-.wrapper {
-    width: 620px;
-    margin: auto;
-}
+// pre {
+//   border:1px solid #000;
+//   overflow-x:auto;
+//   background: #222;
+//   color: #fff;
+//   text-shadow: none;
+// }
+// }
 
-.carousel-wrapper {
-    margin: 20px auto;
-    position: relative;
-    border: 10px solid #fff;
-    -webkit-border-radius: 5px;
-       -moz-border-radius: 5px;
-            border-radius: 5px;
-    -webkit-box-shadow: 0 0 2px #999;
-       -moz-box-shadow: 0 0 2px #999;
-            box-shadow: 0 0 2px #999;
-}
+// .wrapper {
+//     width: 620px;
+//     margin: auto;
+// }
+
+// .carousel-wrapper {
+//     margin: 20px auto;
+//     position: relative;
+//     border: 10px solid #fff;
+//     -webkit-border-radius: 5px;
+//        -moz-border-radius: 5px;
+//             border-radius: 5px;
+//     -webkit-box-shadow: 0 0 2px #999;
+//        -moz-box-shadow: 0 0 2px #999;
+//             box-shadow: 0 0 2px #999;
+// }
 
 
-.carousel-wrapper .photo-credits {
-    position: absolute;
-    right: 15px;
-    bottom: 0;
-    font-size: 13px;
-    color: #fff;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
-    opacity: .66;
-}
+// .carousel-wrapper .photo-credits {
+//     position: absolute;
+//     right: 15px;
+//     bottom: 0;
+//     font-size: 13px;
+//     color: #fff;
+//     text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+//     opacity: .66;
+// }
 
-.carousel-wrapper .photo-credits a {
-    color: #fff;
-}
+// .carousel-wrapper .photo-credits a {
+//     color: #fff;
+// }
 
-/** Carousel **/
+// /** Carousel **/
 
-.carousel {
-    position: relative;
-    overflow: hidden;
-    width: 600px;
-    height: 400px;
-}
+// .carousel {
+//     position: relative;
+//     overflow: hidden;
+//     width: 200px;
+//     height: 600px;
+// }
 
-.carousel ul {
-    width: 20000em;
-    position: absolute;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+// .carousel ul {
+//     width: 20000em;
+//     position: absolute;
+//     list-style: none;
+//     margin: 0;
+//     padding: 0;
+// }
 
-.carousel li {
-    float: left;
-}
+// .carousel li {
+//     float: left;
+//     width: 200px
+// }
 
-/** Carousel Controls **/
+// /** Carousel Controls **/
 
-.carousel-control-prev,
-.carousel-control-next {
-    position: absolute;
-    top: 200px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    background: #4E443C;
-    color: #fff;
-    text-decoration: none;
-    text-shadow: 0 0 1px #000;
-    font: 24px/27px Arial, sans-serif;
-    -webkit-border-radius: 30px;
-       -moz-border-radius: 30px;
-            border-radius: 30px;
-    -webkit-box-shadow: 0 0 2px #999;
-       -moz-box-shadow: 0 0 2px #999;
-            box-shadow: 0 0 2px #999;
-}
+// .carousel-control-prev,
+// .carousel-control-next {
+//     position: absolute;
+//     top: 200px;
+//     width: 30px;
+//     height: 30px;
+//     text-align: center;
+//     background: #4E443C;
+//     color: #fff;
+//     text-decoration: none;
+//     text-shadow: 0 0 1px #000;
+//     font: 24px/27px Arial, sans-serif;
+//     -webkit-border-radius: 30px;
+//        -moz-border-radius: 30px;
+//             border-radius: 30px;
+//     -webkit-box-shadow: 0 0 2px #999;
+//        -moz-box-shadow: 0 0 2px #999;
+//             box-shadow: 0 0 2px #999;
+// }
 
-.carousel-control-prev {
-    left: -50px;
-}
+// .carousel-control-prev {
+//     left: -50px;
+// }
 
-.carousel-control-next {
-    right: -50px;
-}
+// .carousel-control-next {
+//     right: -50px;
+// }
 
-.carousel-control-prev:hover span,
-.carousel-control-next:hover span {
-    display: block;
-}
-}
+// .carousel-control-prev:hover span,
+// .carousel-control-next:hover span {
+//     display: block;
+// }

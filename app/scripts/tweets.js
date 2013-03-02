@@ -33,7 +33,7 @@ App.TweetsCollection = (function() {
 
 App.TweetsView = (function() {
 
-  TweetsView.prototype.el = $('<ul id="tweetCarousel" class="unstyled">');
+  TweetsView.prototype.el = $('<ul id="tweetCarousel" class="jcarousel jcarousel-skin-tango">');
 
   function TweetsView(tweets) {
     this.tweets = tweets;
@@ -42,8 +42,10 @@ App.TweetsView = (function() {
   TweetsView.prototype.render = function() {
     var _this = this;
     $.each(this.tweets, function(index, tweet) {
-      return _this.el.append("<li>\n  <img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name + "'>\n </br> " + tweet.text + "\n</li>");
+      return _this.el.append("<li>\n  <img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name + "'>\n  " + tweet.text + "\n</li>");
+      // return _this.el.append("<li>\n  <img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name + "'>\n  </li>");
     });
+
     return this;
   };
 
