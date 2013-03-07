@@ -13,16 +13,10 @@
             vertical: true,
             scroll: 1,
           });
-        $('#recCarousel').jcarousel({
-        	easing: 'easeInBack',
-        	wrap: 'circular',
-            scroll: 1,
-            random: true,
-            auto: 20
-            // easing: 'easeInQuart'
-          });
-        $("abbr.timeago").timeago();
-	  }, 500);
+        // $('.right .carousel').fadeIn();
+        
+        
+	  }, 2000);
 	});
 
 
@@ -34,7 +28,7 @@
 
 		default: function(module) {
 			if(module==='')module='home';
-			$('div.main div').hide();
+			$('div.main > div').hide();
 			$('div.main div#'+module).fadeIn();
 		}
 	});

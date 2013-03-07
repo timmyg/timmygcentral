@@ -80,7 +80,7 @@
              <p>email</p>
              <p>linkedin</p>
              <p>github</p>
-             <p>bitbucket</p>
+             <p>bitbucket1</p>
            </div>
         </div>
         <div class="span3 right visible-desktop no_selection">
@@ -200,6 +200,14 @@ var tgc_exp_uri = "https://spreadsheets.google.com/feeds/list/0AsRjUFPfaIWvdHZ5Z
       var template = "<ul id='recCarousel' class='jcarousel jcarousel-skin-tango'>{{#entry}}<li><p>\"{{gsx$rec.$t}}\"</p>{{#gsx$qualities.$t}}Top Qualities:<p>{{gsx$qualities.$t}}</p>{{/gsx$qualities.$t}}{{gsx$name.$t}} {{gsx$date.$t}} {{gsx$company.$t}}</li>{{/entry}}</ul>";
       var html = Mustache.to_html(template, data.feed);
       $('.left .carousel').append(html);
+      $('#recCarousel').jcarousel({
+          easing: 'easeInBack',
+          wrap: 'circular',
+            scroll: 1,
+            random: true,
+            auto: 20
+            // easing: 'easeInQuart'
+          });
     }
   });
 
@@ -228,7 +236,7 @@ var tgc_exp_uri = "https://spreadsheets.google.com/feeds/list/0AsRjUFPfaIWvdHZ5Z
         $('#image').html('<img src="' + image + '"/>');
         return false;
       });
-
+      $("abbr.timeago").timeago();
 
     });
 </script>
