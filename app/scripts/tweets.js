@@ -4,6 +4,11 @@ var App;
 
 App = App || {};
 
+function replaceURLWithHTMLLinks(text) {
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    return text.replace(exp,"<a href='$1' target=\"_blank\">$1</a>"); 
+}
+
 App.TweetsCollection = (function() {
 
   function TweetsCollection(user, apiUrl, count) {
@@ -42,7 +47,9 @@ App.TweetsView = (function() {
   TweetsView.prototype.render = function() {
     var _this = this;
     $.each(this.tweets, function(index, tweet) {
-      return _this.el.append("<li>\n  <img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name + "'>\n  " + tweet.text + "\n</li>");
+      var timeago = "<p><abbr class=\"timeago\" title=\""+tweet.created_at+"\"></abbr></p>";
+      return _this.el.append("<li><img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name 
+        + "'><a class='tweeter' href='https:\/\/twitter.com\/"+tweet.user.screen_name+"' target=\"_blank\">"+tweet.user.name+"</a><div class='tweetTxt'>" + replaceURLWithHTMLLinks(tweet.text) +timeago+ "</div></li>");
       // return _this.el.append("<li>\n  <img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name + "'>\n  </li>");
     });
 

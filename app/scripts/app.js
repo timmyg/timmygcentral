@@ -6,21 +6,25 @@
 	tweets.fetch().done(function(data) {
 	  var tweetsView;
 	  tweetsView = new App.TweetsView(data).render();
-	  $('.left .carousel').append(tweetsView.el);
+	  $('.right .carousel').append(tweetsView.el);
 	  //TODO need to find better way to do this
 	  setTimeout(function() {
         $('#tweetCarousel').jcarousel({
             vertical: true,
-            scroll: 1
+            scroll: 1,
           });
         $('#recCarousel').jcarousel({
-            scroll: 1
+        	easing: 'easeInBack',
+        	wrap: 'circular',
+            scroll: 1,
+            random: true,
+            auto: 20
+            // easing: 'easeInQuart'
           });
-	  }, 200);
+        $("abbr.timeago").timeago();
+	  }, 500);
 	});
 
-
-	var vent = _.extend({},Backbone.Events);	
 
 	App.Router = Backbone.Router.extend({
 		routes: {

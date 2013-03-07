@@ -1,4 +1,4 @@
-$tweetWidth: 180px;
+$tweetWidth: 240px;
 $recWidth: 200px;
 //carousel buttons
 $prevImgh: url(../images/prev-horizontal.png);
@@ -8,11 +8,11 @@ $nextImgv: url(../images/next-vertical.png);
 $carHeight: 500px;
 
 .jcarousel-skin-tango .jcarousel-container {
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-   border-radius: 10px;
-    background: #F0F6F9;
-    border: 1px solid #346F97;
+   //  -moz-border-radius: 10px;
+   //  -webkit-border-radius: 10px;
+   // border-radius: 10px;
+   //  background: #F0F6F9;
+   //  border: 1px solid #346F97;
 }
 
 .jcarousel-skin-tango .jcarousel-direction-rtl {
@@ -28,7 +28,7 @@ $carHeight: 500px;
 .jcarousel-skin-tango .jcarousel-container-vertical {
     width: $tweetWidth;
     height: $carHeight;
-    padding: 40px 20px;
+    padding: 40px 0;
 }
 
 .jcarousel-skin-tango .jcarousel-clip {
