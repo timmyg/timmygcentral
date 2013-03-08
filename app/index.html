@@ -39,7 +39,7 @@
 
      <div class="container">
       <div class="row">
-        <div class="span3 left no_selection">
+        <div class="span3 left no_selection side">
           <h3>Recommendations</h3>
           <div class="carousel">
             
@@ -63,11 +63,30 @@
              <h2>Portfolio</h2>
              <p>Portfolio of work: BreakForIt,TextTune,Propertyware,Lux?</p>
 
-<div id="image"><img src="images/1.png"/></div>
-<a href="#" rel="images/1.png" class="image"><img src="images/t1.png" class="thumb" border="0"/></a>
-<a href="#" rel="images/2.png" class="image"><img src="images/t2.png" class="thumb" border="0"/></a>
-<a href="#" rel="images/3.png" class="image"><img src="images/t3.png" class="thumb" border="0"/></a>
-
+<div id="portfolioImgContainer"><div id="image"><img src="images/1.png"/></div></div>
+<ul id="portfolioCarousel" class="jcarousel-skin-tango" class="no_selection">
+<!-- <li><img src="images/portfolio/1t.png" class="thumb" border="0" height="51px"/></li>
+<li><img src="images/portfolio/2t.png" class="thumb" border="0"/></li>
+<li><img src="images/portfolio/3t.png" class="thumb" border="0"/></li>
+<li><img src="images/portfolio/5t.png" class="thumb" border="0"/></li>
+<li><img src="images/portfolio/4t.png" class="thumb" border="0"/></li>
+<li><img src="images/portfolio/6t.png" class="thumb" border="0"/></li>
+<li><img src="images/portfolio/7t.png" class="thumb" border="0"/></li>
+<li><img src="images/portfolio/8t.png" class="thumb" border="0"/></li>
+<li><img src="images/portfolio/9t.png" class="thumb" border="0"/></li>
+<li><img src="images/portfolio/10t.png" class="thumb" border="0"/></li>
+ -->
+<li><a href="#" rel="images/portfolio/1.png" class="image"><img src="images/portfolio/1t.png" class="thumb" border="0"/></a></li>
+<li><a href="#" rel="images/portfolio/2.png" class="image"><img src="images/portfolio/2t.png" class="thumb" border="0"/></a></li>
+<li><a href="#" rel="images/portfolio/3.png" class="image"><img src="images/portfolio/3t.png" class="thumb" border="0"/></a></li>
+<li><a href="#" rel="images/portfolio/5.png" class="image"><img src="images/portfolio/5t.png" class="thumb" border="0"/></a></li>
+<li><a href="#" rel="images/portfolio/4.png" class="image"><img src="images/portfolio/4t.png" class="thumb" border="0"/></a></li>
+<li><a href="#" rel="images/portfolio/6.png" class="image"><img src="images/portfolio/6t.png" class="thumb" border="0"/></a></li>
+<li><a href="#" rel="images/portfolio/7.png" class="image"><img src="images/portfolio/7t.png" class="thumb" border="0"/></a></li>
+<li><a href="#" rel="images/portfolio/8.png" class="image"><img src="images/portfolio/8t.png" class="thumb" border="0"/></a></li>
+<li><a href="#" rel="images/portfolio/9.png" class="image"><img src="images/portfolio/9t.png" class="thumb" border="0"/></a></li>
+<li><a href="#" rel="images/portfolio/10.png" class="image"><img src="images/portfolio/10t.png" class="thumb" border="0"/></a></li>
+</ul>
 
            </div>
            <div id="explore">
@@ -83,7 +102,7 @@
              <p>bitbucket1</p>
            </div>
         </div>
-        <div class="span3 right visible-desktop no_selection">
+        <div class="span3 right visible-desktop no_selection side">
           <h3>Tweets</h3>
           <div class="carousel">
           </div>
@@ -200,14 +219,16 @@ var tgc_exp_uri = "https://spreadsheets.google.com/feeds/list/0AsRjUFPfaIWvdHZ5Z
       var template = "<ul id='recCarousel' class='jcarousel jcarousel-skin-tango'>{{#entry}}<li><p>\"{{gsx$rec.$t}}\"</p>{{#gsx$qualities.$t}}Top Qualities:<p>{{gsx$qualities.$t}}</p>{{/gsx$qualities.$t}}{{gsx$name.$t}} {{gsx$date.$t}} {{gsx$company.$t}}</li>{{/entry}}</ul>";
       var html = Mustache.to_html(template, data.feed);
       $('.left .carousel').append(html);
-      $('#recCarousel').jcarousel({
-          easing: 'easeInBack',
-          wrap: 'circular',
-            scroll: 1,
-            random: true,
-            auto: 20
-            // easing: 'easeInQuart'
-          });
+      setTimeout(function() {
+        $('#recCarousel').jcarousel({
+            easing: 'easeInBack',
+            wrap: 'circular',
+              scroll: 1,
+              random: true,
+              auto: 20
+              // easing: 'easeInQuart'
+            });
+      }, 2000);
     }
   });
 
@@ -237,6 +258,18 @@ var tgc_exp_uri = "https://spreadsheets.google.com/feeds/list/0AsRjUFPfaIWvdHZ5Z
         return false;
       });
       $("abbr.timeago").timeago();
+
+      $('#image').bind('click',function(e){
+          alert(e.currentTarget.innerHTML);
+      });
+
+      setTimeout(function() {
+      $('#portfolioCarousel').jcarousel({
+         scroll: 1,
+        visible: 8,
+        // animation: 3000,
+          });
+    }, 2000);
 
     });
 </script>

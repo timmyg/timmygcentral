@@ -1,11 +1,13 @@
 $tweetWidth: 240px;
 $recWidth: 200px;
+$portWidth: 100%;
 //carousel buttons
 $prevImgh: url(../images/prev-horizontal.png);
 $nextImgh: url(../images/next-horizontal.png);
 $prevImgv: url(../images/prev-vertical.png);
 $nextImgv: url(../images/next-vertical.png);
 $carHeight: 500px;
+$portHeight: 60px;
 
 .jcarousel-skin-tango .jcarousel-container {
    //  -moz-border-radius: 10px;
@@ -19,31 +21,25 @@ $carHeight: 500px;
 	direction: rtl;
 }
 
-.jcarousel-skin-tango .jcarousel-container-horizontal {
-    width: $recWidth;
-    height: $carHeight;
-    padding: 20px 40px;
+
+
+
+.jcarousel-skin-tango .jcarousel-clip {
+    overflow: hidden;
 }
 
+
+.right{
+.jcarousel-skin-tango .jcarousel-clip-vertical {
+    width:  $tweetWidth;
+    height: 500px;
+}
 .jcarousel-skin-tango .jcarousel-container-vertical {
     width: $tweetWidth;
     height: $carHeight;
     padding: 40px 0;
 }
 
-.jcarousel-skin-tango .jcarousel-clip {
-    overflow: hidden;
-}
-
-.jcarousel-skin-tango .jcarousel-clip-horizontal {
-    width:  245px;
-    height: 75px;
-    height: $carHeight;
-}
-
-.jcarousel-skin-tango .jcarousel-clip-vertical {
-    width:  $tweetWidth;
-    height: 500px;
 }
 
 .jcarousel-skin-tango .jcarousel-item {
@@ -51,10 +47,28 @@ $carHeight: 500px;
     height: 75px;
 */}
 
+.left{
 .jcarousel-skin-tango .jcarousel-item-horizontal {
     width:  $recWidth;
 	margin-left: 0;
     margin-right: 50px;
+}
+.jcarousel-skin-tango .jcarousel-container-horizontal {
+    width: $recWidth;
+    height: $carHeight;
+    padding: 20px 40px;
+}
+}
+
+
+#portfolio{
+.jcarousel-skin-tango .jcarousel-item-horizontal {
+    width:  $portWidth;
+}
+.jcarousel-skin-tango .jcarousel-item-horizontal {
+    width:  $portWidth;
+    height: $portHeight;
+}
 }
 
 .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
