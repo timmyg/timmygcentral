@@ -34,7 +34,42 @@
 }
 
 #portfolioImgContainer{
-width: 100%;
+// width: 100%;
 height: 360px;
+overflow: hidden;
 
 }
+div.navLinks{
+	text-align: center;
+ul.nav {
+	display: inline-block;
+	li{
+		float: left;
+		display: inline-block;
+		padding: 1px 5px;
+	}
+}
+}
+
+
+
+div.navbar-inner{
+	text-align: center;
+}
+
+div#image img{
+	max-height: 355px;
+	max-width: 570px;
+	margin: 0 auto;
+	display: block;
+}
+
+div.navbar-inner a.brand{
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+}
+
+// div#portfolio img{
+// 	width:40px;
+// }
