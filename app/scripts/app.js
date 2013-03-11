@@ -6,17 +6,16 @@
 	tweets.fetch().done(function(data) {
 	  var tweetsView;
 	  tweetsView = new App.TweetsView(data).render();
-	  $('.right .carousel').append(tweetsView.el);
-	  //TODO need to find better way to do this
-	  setTimeout(function() {
-        $('#tweetCarousel').jcarousel({
-            vertical: true,
-            scroll: 1,
-          });
-        // $('.right .carousel').fadeIn();
-        
-        
-	  }, 2000);
+	  $('#tweetCarousel').replaceWith(tweetsView.el);
+	  $('#tweetCarousel').css('opacity','0')
+	  setTimeout(function(){
+		  $('#tweetCarousel').jcarousel({
+		      vertical: true,
+		      scroll: 1
+		  });
+		  $('#tweetCarousel').animate({opacity: 1}, 1000);
+	   },2000);
+
 	});
 
 
@@ -25,11 +24,12 @@
 			'*other': 'default'
 		},
 
-
 		default: function(module) {
 			if(module==='')module='home';
 			$('div.main > div').hide();
 			$('div.main div#'+module).fadeIn();
+			//hacky way to show thumbnails because they arent showing.
+			if(module==='portfolio')$('#portfolioCarousel li').css('width','70px');
 		}
 	});
 

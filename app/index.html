@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/skin.css">
     <script src="scripts/vendor/modernizr.min.js"></script>
-    <link rel="stylesheet" href="components/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="components/fancybox2/jquery.fancybox.css" type="text/css" media="screen" />
+    <!-- <link rel="stylesheet" href="components/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" /> -->
     
 </head>
 <body>
@@ -40,9 +41,11 @@
 
      <div class="container">
       <div class="row">
-        <div class="span3 left no_selection side">
+        <div class="span3 left noSelection side">
           <h3>Recommendations</h3>
           <div class="carousel">
+            <ul id='recCarousel' class='jcarousel jcarousel-skin-tango'>
+            </ul>
             
           </div>
         </div>
@@ -64,19 +67,14 @@
              <h2>Portfolio</h2>
              <p>Portfolio of work: BreakForIt,TextTune,Propertyware,Lux?</p>
 
-<div id="portfolioImgContainer">
-
-
   <div id="portfolioImgContainer">
-    <div id="image">
-      <a class="fancybox" data-fancybox-group="1" href="images/portfolio/1.png">
-        <img src="images/portfolio/1.png"/>
-      </a>
+    <div id="image"> <!-- populate via jQ -->
     </div>
   </div>
-</div>
-<div class="no_selection">
-<ul id="portfolioCarousel" class="jcarousel-skin-tango" class="no_selection">
+
+
+<div id="portfolioWrapper" class="noSelection">
+<ul id="portfolioCarousel" class="jcarousel-skin-tango" class="noSelection">
 </ul>
 </div>
 
@@ -94,9 +92,11 @@
              <p>bitbucket</p>
            </div>
         </div>
-        <div class="span3 right visible-desktop no_selection side">
+        <div class="span3 right visible-desktop noSelection side">
           <h3>Tweets</h3>
           <div class="carousel">
+            <ul id="tweetCarousel" class="jcarousel jcarousel-skin-tango">
+            </ul>
           </div>
         </div>
       </div>
@@ -127,7 +127,7 @@
     <!--
     <!-- build:js scripts/plugins.js -->
     <!--upgrade jQuery when lightbox supports 1.9+ -->
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="components/underscore/underscore.js"></script>
     <script src="components/backbone/backbone.js"></script>
     <script src="components/mustache/mustache.js"></script>
@@ -139,16 +139,12 @@
     <script src="scripts/google-spreadsheet.js"></script> 
     <script src="components/jquery-timeago/jquery.timeago.js"></script> 
     <script src="components/jquery-json/jquery.json-2.4.min.js"></script>
+    <script type="text/javascript" src="components/fancybox2/jquery.fancybox.pack.js"></script> <!--do not used pack as patched reg version for jQ 1.9-->
+
+    <!--
     <script type="text/javascript" src="components/fancybox/jquery.fancybox-1.3.4.js"></script> <!--do not used pack as patched reg version for jQ 1.9-->
 
     <!-- endbuild -->
-
-
-
-
-
-
-
 <script>
 
 //fade in while loading
@@ -177,98 +173,117 @@ function ensureJson(stringOrJSON){
   return stringOrJSON;
 }
 
-  $.ajax({
-    type: "GET",
-    url: tgc_recommendations_uri,
-    format: "jsonp",
-    success: function(data){
-      data = ensureJson(data);
-      randomizeList(data.feed.entry);
-      var template = "<ul id='recCarousel' class='jcarousel jcarousel-skin-tango'>{{#entry}}<li><p>\"{{gsx$rec.$t}}\"</p>{{#gsx$qualities.$t}}Top Qualities:<p>{{gsx$qualities.$t}}</p>{{/gsx$qualities.$t}}{{gsx$name.$t}} {{gsx$date.$t}} {{gsx$company.$t}}</li>{{/entry}}</ul>";
-      data = ensureJson(data);
-      var html = Mustache.to_html(template, data.feed);
-      $('.left .carousel').append(html);
-      setTimeout(function() {
+// var size = $('#portfolioCarousel img').size();
+// var clickedIndex;
+
+// function reorder(){
+//   var size = $('#portfolioCarousel img').size();
+//   var beginning = false;
+//   $.each($('#portfolioCarousel li'), function(){
+//     if( $(this).attr('jcarouselindex') === 'x' || beginning){
+//       $(this).attr('jcarouselindex',clickedIndex++);
+//       beginning = true;  
+//     }else{
+//       $(this).attr('jcarouselindex',++size);
+//     }
+//   });
+//   size = size + clickedIndex;
+// }
+// 
+
+  function loadRecommendations(){
+    $.ajax({
+      type: "GET",
+      url: tgc_recommendations_uri,
+      format: "jsonp",
+      success: function(data){
+        $('#recCarousel').css('opacity','0')
+        data = ensureJson(data);
+        randomizeList(data.feed.entry);
+        var template = "{{#entry}}<li><p>\"{{gsx$rec.$t}}\"</p>{{#gsx$qualities.$t}}Top Qualities:<p>{{gsx$qualities.$t}}</p>{{/gsx$qualities.$t}}{{gsx$name.$t}} {{gsx$date.$t}} {{gsx$company.$t}}</li>{{/entry}}</ul>";
+        data = ensureJson(data);
+        var html = Mustache.to_html(template, data.feed);
+        $('#recCarousel').append(html);
         $('#recCarousel').jcarousel({
             easing: 'easeInBack',
             wrap: 'circular',
+            scroll: 1,
+            random: true,
+            auto: 20
+            // easing: 'easeInQuart'
+          });
+        $('#recCarousel').animate({opacity: 1}, 1000);
+      }
+    });
+  }
+
+  function loadExplore(){
+  $.ajax({
+      type: "GET",
+      url: tgc_explore_uri,
+      format: "jsonp",
+      success: function(data){
+        data = ensureJson(data);
+        randomizeList(data.feed.entry);
+        var template = "{{#entry}}<a href='{{gsx$link.$t}}' target='_blank'><img src={{gsx$logo.$t}} /></a><p>{{gsx$description.$t}}</p></br>{{/entry}}";
+        data = ensureJson(data);
+        var html = Mustache.to_html(template, data.feed);
+        $('#explore').append(html);
+      }
+    });
+  }
+
+  function loadPortfolio(){
+    $.ajax({
+      type: "GET",
+      url: tgc_portfolio_uri,
+      format: "jsonp",
+      success: function(data){
+        $('#portfolioCarousel').css('opacity','0');
+        data = ensureJson(data);
+        // title?
+        var template = "{{#entry}}<li><a href='{{gsx$photo.$t}}' rel='{{gsx$photo.$t}}' class='fancybox'><img src='{{gsx$thumb.$t}}' class='thumb' border='0'/></a></li>{{/entry}}";
+        data = ensureJson(data);
+        var html = Mustache.to_html(template, data.feed);
+        $('#portfolio #portfolioCarousel').append(html);
+        //populate portfolio main image
+        var firstImgPath = data.feed.entry[0].gsx$photo.$t;
+        $('#portfolioImgContainer #image').append("<a class=\"fancybox\" href=\""+firstImgPath+"\"><img src=\""+firstImgPath+"\"/></a>");
+
+        $('#portfolioCarousel').jcarousel({
               scroll: 1,
-              random: true,
-              auto: 20
-              // easing: 'easeInQuart'
-            });
-      }, 2000);
-    }
-  });
-
-  $.ajax({
-    type: "GET",
-    url: tgc_explore_uri,
-    format: "jsonp",
-    success: function(data){
-      data = ensureJson(data);
-      randomizeList(data.feed.entry);
-      var template = "{{#entry}}<a href='{{gsx$link.$t}}' target='_blank'><img src={{gsx$logo.$t}} /></a><p>{{gsx$description.$t}}</p></br>{{/entry}}";
-      data = ensureJson(data);
-      var html = Mustache.to_html(template, data.feed);
-      $('#explore').append(html);
-    }
-  });
-
-  $.ajax({
-    type: "GET",
-    url: tgc_portfolio_uri,
-    format: "jsonp",
-    success: function(data){
-      data = ensureJson(data);
-      // {{#entry}}<li><a href="#" rel="gsx$photo.$t" class="image"><img src="gsx$thumb.$t" class="thumb" border="0"/></a></li>{{/entry}}
-      var template = "{{#entry}}<li><a href='#' rel='{{gsx$photo.$t}}' class='image'><img src='{{gsx$thumb.$t}}' class='thumb' border='0'/></a></li>{{/entry}}";
-      data = ensureJson(data);
-      var html = Mustache.to_html(template, data.feed);
-      $('#portfolio #portfolioCarousel').append(html);
-
-      $(".image").click(function() {
-          var image = $(this).attr("rel");
-          var html = "<a class=\"fancybox\" data-fancybox-group=\"1\" href=\""+image+"\">"+
-                     "  <img src=\""+image+"\"/>"+
-                     "</a>";
-          $('#image').hide();
-          $('#image').fadeIn('slow');
-          $('#image').html(html);
-          fancyboxize();
-          
-          return false;
+              visible: 9,
+              itemFallbackDimension: 300
         });
-    }
-  });
+
+         $('#portfolioCarousel').animate({opacity: 1}, 1000);
+
+        $('#portfolioCarousel img').bind('click', function(e){
+          var image = $(this).parent().attr("rel");
+            var html = "<a class=\"fancybox\" href=\""+image+"\">"+
+                       "  <img src=\""+image+"\"/>"+
+                       "</a>";
+            $('#image').hide();
+            $('#image').fadeIn('slow');
+            $('#image').html(html); 
+            fancyboxize();
+            
+            return false;
+            });
+      }
+    });
+  }
 
 </script>
 
 <script>
 
-// <div id="image">
-//       <a class="fancybox" data-fancybox-group="1" href="images/portfolio/1.png">
-//         <img src="images/portfolio/1.png"/>
-//       </a>
-//     </div>
+
     $(document).ready(function($) {
-      // $('#image').show();
       $("abbr.timeago").timeago();
-
-
-
-      // $('#image').bind('click',function(e){
-      //     alert(e.currentTarget.innerHTML);
-      // });
-
-      setTimeout(function() {
-      $('#portfolioCarousel').jcarousel({
-           scroll: 1,
-          visible: 8,
-          itemFallbackDimension: 300
-          // animation: 3000,
-            });
-      }, 2000);
+      loadRecommendations();
+      loadPortfolio();
+      loadExplore();
 
       fancyboxize();
 
@@ -276,17 +291,6 @@ function ensureJson(stringOrJSON){
 
     function fancyboxize(){
       $(".fancybox").fancybox({
-        // openEffect  : 'none',
-        // closeEffect : 'none',
-         //transitionIn : 'elastic', ///API for version 1.0
-         //transitionOut  : 'elastic',
-         //speedIn    : 600, 
-         //speedOut   : 200, 
-        // cyclic         : true,
-         openEffect   : 'elastic',
-         closeEffect  : 'elastic',
-         openSpeed    : 600, 
-         closeSpeed   : 200,
       });
     }
 </script>
