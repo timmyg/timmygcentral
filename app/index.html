@@ -169,7 +169,7 @@ var tgc_explore_uri = "https://spreadsheets.google.com/feeds/list/0AsRjUFPfaIWvd
 var tgc_portfolio_uri = "https://spreadsheets.google.com/feeds/list/0AsRjUFPfaIWvdFdnR3RIVHV3NGU1UnpjYWh3RjNSclE/od6/public/values?alt=json";
 
 function ensureJson(stringOrJSON){
-  if($.type(stringOrJSON) === "string")stringOrJSON = $.parseJSON(data);
+  if($.type(stringOrJSON) === "string")stringOrJSON = $.parseJSON(stringOrJSON);
   return stringOrJSON;
 }
 
