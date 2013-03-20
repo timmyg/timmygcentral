@@ -38,7 +38,7 @@ App.TweetsCollection = (function() {
 
 App.TweetsView = (function() {
 
-  TweetsView.prototype.el = $('<ul id="tweetCarousel" class="jcarousel jcarousel-skin-tango">');
+  TweetsView.prototype.el = $('<ul id="tweetCarousel" class="jcarousel jcarousel-skin">');
 
   function TweetsView(tweets) {
     this.tweets = tweets;

@@ -23,28 +23,29 @@
 </head>
 <body>
 
-
-<div class="navbar">
+<!-- <img class="bg" src="../images/outside.png" alt=""> -->
+<!-- <div class="navbar">
   <div class="navbar-inner">
     <a class="brand" href="#home">timmygcentral</a>
   </div>
 </div>
+ -->
 
 <div class="navLinks">
-<ul class="nav">
-  <li><a href="#about">About</a></li>
-  <li><a href="#portfolio">Portfolio</a></li>
-  <li><a href="#explore">Explore</a></li>
-  <li><a href="#contact">Contact</a></li>
-</ul>
+  <ul class="nav">
+    <li><a href="#about"><img src="../images/about.png" alt=""></a></li>
+    <li><a href="#portfolio"><img src="../images/portfolio.png" alt=""></a></li>
+    <li><a href="#explore"><img src="../images/explore.png" alt=""></a></li>
+    <li><a href="#contact"><img src="../images/contact.png" alt=""></a></li>
+  </ul>
 </div>
 
      <div class="container">
       <div class="row">
         <div class="span3 left noSelection side">
-          <h3>Recommendations</h3>
+          <!-- <h3>Recommendations</h3> -->
           <div class="carousel">
-            <ul id='recCarousel' class='jcarousel jcarousel-skin-tango'>
+            <ul id='recCarousel' class='jcarousel jcarousel-skin'>
             </ul>
             
           </div>
@@ -74,7 +75,7 @@
 
 
 <div id="portfolioWrapper" class="noSelection">
-<ul id="portfolioCarousel" class="jcarousel-skin-tango" class="noSelection">
+<ul id="portfolioCarousel" class="jcarousel-skin" class="noSelection">
 </ul>
 </div>
 
@@ -93,9 +94,9 @@
            </div>
         </div>
         <div class="span3 right visible-desktop noSelection side">
-          <h3>Tweets</h3>
+          <!-- <h3>Tweets</h3> -->
           <div class="carousel">
-            <ul id="tweetCarousel" class="jcarousel jcarousel-skin-tango">
+            <ul id="tweetCarousel" class="jcarousel jcarousel-skin">
             </ul>
           </div>
         </div>
@@ -250,11 +251,11 @@ function ensureJson(stringOrJSON){
         var firstImgPath = data.feed.entry[0].gsx$photo.$t;
         $('#portfolioImgContainer #image').append("<a class=\"fancybox\" href=\""+firstImgPath+"\"><img src=\""+firstImgPath+"\"/></a>");
 
-        $('#portfolioCarousel').jcarousel({
-              scroll: 1,
-              visible: 9,
-              itemFallbackDimension: 300
-        });
+        // $('#portfolioCarousel').jcarousel({
+        //       scroll: 1,
+        //       visible: 9,
+        //       itemFallbackDimension: 300
+        // });
 
          $('#portfolioCarousel').animate({opacity: 1}, 1000);
 

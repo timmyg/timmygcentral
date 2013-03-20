@@ -2,30 +2,23 @@
 @import "compass_twitter_bootstrap_responsive";
 
 
-// div.main div{
-// 	display: none;
-// }
 
-.rounded {
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+body {
+    background-image: url('../images/outside.png');        
+	background-repeat: no-repeat;        
+	background-size: cover;       
+	// width: 85%;            
+	height: 100%; 
+	width: 100%;
 }
 
-.left{
-	//  img{
-	// 	float: left;
-	// }
-	// .tweetTxt{
-	// 	margin: 0 0 0 55px;
-	// 	line-height: 15px;
-	// }
-	// // .tweeter{
-	// // 	margin: 0 0 0 5px;
-	// // }
-	// .jcarousel-container{
-	// 	padding: 40px 0;
-	// }
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
 }
+
 
 .noSelection {
     -webkit-user-select: none; // webkit (safari, chrome) browsers
@@ -48,6 +41,9 @@ ul.nav {
 		float: left;
 		display: inline-block;
 		padding: 1px 5px;
+	}
+	a:hover{ 
+		background-color:transparent;
 	}
 }
 }

@@ -11,7 +11,8 @@
 	  setTimeout(function(){
 		  $('#tweetCarousel').jcarousel({
 		      vertical: true,
-		      scroll: 1
+		      scroll: 1,
+		      visible: 3
 		  });
 		  $('#tweetCarousel').animate({opacity: 1}, 1000);
 	   },2000);
