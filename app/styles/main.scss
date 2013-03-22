@@ -1,15 +1,28 @@
 @import "compass_twitter_bootstrap";
 @import "compass_twitter_bootstrap_responsive";
+@import "compass";
 
-
+$gradient1: rgb(252, 205, 88);
+$gradient2: rgb(255, 102, 0);
 
 html {
-    background-image: url('../images/outside.png');        
-	background-repeat: no-repeat;        
+
+	@include background(url('../images/outside.png'),
+		radial-gradient(45% 60%, ellipse cover,  $gradient1, $gradient2));
+	background-repeat: no-repeat;         
 	background-size: cover;       
-	// width: 85%;            
 	height: 100%; 
 	width: 100%;
+	background-attachment:fixed;
+	background-position:center bottom; 
+}
+
+body {
+    background-color:transparent;
+}
+
+p, .jcarousel{
+	color: white;
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
@@ -17,6 +30,10 @@ html {
     left: 50%;
     margin-left: -512px;   /* 50% */
   }
+}
+
+div.navLinks{
+	height: 140px;
 }
 
 
