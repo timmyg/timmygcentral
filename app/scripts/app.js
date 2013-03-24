@@ -30,7 +30,7 @@
 			$('div.main > div').hide();
 			$('div.main div#'+module).fadeIn();
 			//hacky way to show thumbnails because they arent showing.
-			if(module==='portfolio')$('#portfolioCarousel li').css('width','70px');
+			// if(module==='portfolio')$('#portfolioCarousel li').css('width','70px');
 		}
 	});
 

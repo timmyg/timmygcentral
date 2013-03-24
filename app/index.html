@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles/skin.css">
     <script src="scripts/vendor/modernizr.min.js"></script>
     <link rel="stylesheet" href="components/fancybox2/jquery.fancybox.css" type="text/css" media="screen" />
+    <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>
     <!-- <link rel="stylesheet" href="components/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" /> -->
     
 </head>
@@ -75,7 +76,7 @@
 
 
 <div id="portfolioWrapper" class="noSelection">
-<ul id="portfolioCarousel" class="jcarousel-skin" class="noSelection">
+<ul id="portfolioCarousel" class="noSelection">
 </ul>
 </div>
 
@@ -240,7 +241,6 @@ function ensureJson(stringOrJSON){
       url: tgc_portfolio_uri,
       format: "jsonp",
       success: function(data){
-        $('#portfolioCarousel').css('opacity','0');
         data = ensureJson(data);
         // title?
         var template = "{{#entry}}<li><a href='{{gsx$photo.$t}}' rel='{{gsx$photo.$t}}' class='fancybox'><img src='{{gsx$thumb.$t}}' class='thumb' border='0'/></a></li>{{/entry}}";
@@ -250,14 +250,6 @@ function ensureJson(stringOrJSON){
         //populate portfolio main image
         var firstImgPath = data.feed.entry[0].gsx$photo.$t;
         $('#portfolioImgContainer #image').append("<a class=\"fancybox\" href=\""+firstImgPath+"\"><img src=\""+firstImgPath+"\"/></a>");
-
-        // $('#portfolioCarousel').jcarousel({
-        //       scroll: 1,
-        //       visible: 9,
-        //       itemFallbackDimension: 300
-        // });
-
-         // $('#portfolioCarousel').animate({opacity: 1}, 1000);
 
         $('#portfolioCarousel img').bind('click', function(e){
           var image = $(this).parent().attr("rel");
