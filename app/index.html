@@ -76,7 +76,7 @@
 
 
 <div id="portfolioWrapper" class="noSelection">
-<ul id="portfolioCarousel" class="noSelection">
+<ul id="portfolioImgs" class="noSelection">
 </ul>
 </div>
 
@@ -88,6 +88,7 @@
            <div id="contact">
              <h2>Contact</h2>
              <p>twitter</p>
+             <p>facebook</p>
              <p>email</p>
              <p>linkedin</p>
              <p>github</p>
@@ -207,7 +208,7 @@ function ensureJson(stringOrJSON){
         var html = Mustache.to_html(template, data.feed);
         $('#recCarousel').append(html);
         $('#recCarousel').jcarousel({
-            easing: 'easeInBack',
+            easing: 'easeOutBack',
             wrap: 'circular',
             scroll: 1,
             random: true,
@@ -226,8 +227,8 @@ function ensureJson(stringOrJSON){
       format: "jsonp",
       success: function(data){
         data = ensureJson(data);
-        randomizeList(data.feed.entry);
-        var template = "{{#entry}}<a href='{{gsx$link.$t}}' target='_blank'><img src={{gsx$logo.$t}} /></a><p>{{gsx$description.$t}}</p></br>{{/entry}}";
+        // randomizeList(data.feed.entry);
+        var template = "{{#entry}}<div class='exploreWrapper'><a href='{{gsx$link.$t}}' target='_blank'><img src={{gsx$logo.$t}} /></a><p>{{gsx$description.$t}}</p></div></br>{{/entry}}";
         data = ensureJson(data);
         var html = Mustache.to_html(template, data.feed);
         $('#explore').append(html);
@@ -246,12 +247,12 @@ function ensureJson(stringOrJSON){
         var template = "{{#entry}}<li><a href='{{gsx$photo.$t}}' rel='{{gsx$photo.$t}}' class='fancybox'><img src='{{gsx$thumb.$t}}' class='thumb' border='0'/></a></li>{{/entry}}";
         data = ensureJson(data);
         var html = Mustache.to_html(template, data.feed);
-        $('#portfolio #portfolioCarousel').append(html);
+        $('#portfolio #portfolioImgs').append(html);
         //populate portfolio main image
         var firstImgPath = data.feed.entry[0].gsx$photo.$t;
         $('#portfolioImgContainer #image').append("<a class=\"fancybox\" href=\""+firstImgPath+"\"><img src=\""+firstImgPath+"\"/></a>");
 
-        $('#portfolioCarousel img').bind('click', function(e){
+        $('#portfolioImgs img').bind('click', function(e){
           var image = $(this).parent().attr("rel");
             var html = "<a class=\"fancybox\" href=\""+image+"\">"+
                        "  <img src=\""+image+"\"/>"+
@@ -273,7 +274,6 @@ function ensureJson(stringOrJSON){
 
 
     $(document).ready(function($) {
-      $("abbr.timeago").timeago();
       loadRecommendations();
       loadPortfolio();
       loadExplore();

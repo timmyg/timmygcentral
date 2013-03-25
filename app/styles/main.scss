@@ -5,6 +5,7 @@
 $gradient1: rgb(252, 205, 88);
 $gradient2: rgb(255, 102, 0);
 $fontcolor: black;
+$portfolioImgHeight: 250px;
 
 html {
 
@@ -48,7 +49,7 @@ div.navLinks{
 
 #portfolioImgContainer{
 width: 100%;
-height: 360px;
+height: $portfolioImgHeight;
 overflow: hidden;
 
 }
@@ -104,8 +105,21 @@ div.main > div{
 	li{
 		display: inline;
 	}
+	#portfolioImgs img.thumb{
+		opacity: .3;
+		border-radius: 5px;
+		margin: 5px;
+	}
+	#portfolioImgs img.thumb:hover{
+		opacity: .9;
+	}
 }
 
+#portfolioImgContainer{
+	a.fancybox img{
+		max-height: $portfolioImgHeight;
+	}
+}
 ul#tweetCarousel{
 	list-style: none;
 
@@ -124,4 +138,25 @@ ul#tweetCarousel{
 	a.tweeter, .tweetTxt{
 		padding: 0 0 0 5px;
 	}
+
+	abbr.timeago{
+		// opacity: .6;
+		color: grey;
+		font-style:italic;
+	}
+}
+
+div#explore {
+
+	.exploreWrapper{
+		margin: 10px 0; 
+		clear: both;
+	}
+
+	img{
+		float: left;
+		width: 175px;
+		margin: 0 10px 0 0;
+	}
+
 }
