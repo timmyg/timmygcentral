@@ -116,5 +116,12 @@ ul#tweetCarousel{
 	li{
 		float:none;
 		height: auto !important;
+		width: 100%;
+		position: relative;
+		overflow: hidden;
+		border-radius: 10px;
+	}
+	a.tweeter, .tweetTxt{
+		padding: 0 0 0 5px;
 	}
 }

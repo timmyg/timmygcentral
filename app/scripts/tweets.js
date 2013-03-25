@@ -48,8 +48,7 @@ App.TweetsView = (function() {
     var _this = this;
     $.each(this.tweets, function(index, tweet) {
       var timeago = "<p><abbr class=\"timeago\" title=\""+tweet.created_at+"\"></abbr></p>";
-      return _this.el.append("<li><img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name 
-        + "'><a class='tweeter' href='https:\/\/twitter.com\/"+tweet.user.screen_name+"' target=\"_blank\">"+tweet.user.name+"</a><div class='tweetTxt'>" + replaceURLWithHTMLLinks(tweet.text) +timeago+ "</div></li>");
+      return _this.el.append("<li><div style='opacity:.3;position:absolute; height: 100px;z-index:-1;width:300px;background-image: url("+tweet.user.profile_image_url +"); background-repeat:no-repeat; background-position:center; background-size: 100%;overflow:hidden;'></div><a class='tweeter' href='https:\/\/twitter.com\/"+tweet.user.screen_name+"' target=\"_blank\">"+tweet.user.name+"</a><div class='tweetTxt'>" + replaceURLWithHTMLLinks(tweet.text) +timeago+ "</div></li>");
       // return _this.el.append("<li>\n  <img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name + "'>\n  </li>");
     });
 

@@ -15,6 +15,7 @@
 		      visible: 3
 		  });
 		  $('#tweetCarousel').animate({opacity: 1}, 1000);
+		  $("abbr.timeago").timeago();
 	   },2000);
 
 	});
