@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
 <head>
 
     <meta charset="utf-8">
@@ -23,14 +20,6 @@
     
 </head>
 <body>
-
-<!-- <img class="bg" src="../images/outside.png" alt=""> -->
-<!-- <div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#home">timmygcentral</a>
-  </div>
-</div>
- -->
 
 <div class="navLinks">
   <ul class="nav">
@@ -83,7 +72,7 @@
            </div>
            <div id="explore">
              <h2>Explore</h2>
-             <p>Here are some cool sites:</p></br>
+             <p>Here are some cool sites:</p><br>
            </div>
            <div id="contact">
              <h2>Contact</h2>
@@ -107,29 +96,10 @@
       </div>
 
 
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-            <![endif]-->
 
-            <!-- Add your site or application content here -->
-
-            <!--  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-
-            <script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
-
-
-
-            <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
-            <script>
-            // var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            // (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            //     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            //     s.parentNode.insertBefore(g,s)}(document,'script'));
-            </script>-->
 
     <!--
     <!-- build:js scripts/plugins.js -->
-    <!--upgrade jQuery when lightbox supports 1.9+ -->
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="components/underscore/underscore.js"></script>
     <script src="components/backbone/backbone.js"></script>
@@ -208,7 +178,7 @@ function ensureJson(stringOrJSON){
         var html = Mustache.to_html(template, data.feed);
         $('#recCarousel').append(html);
         $('#recCarousel').jcarousel({
-            easing: 'easeOutBack',
+            easing: 'easeInBack',
             wrap: 'circular',
             scroll: 1,
             random: true,
@@ -228,7 +198,7 @@ function ensureJson(stringOrJSON){
       success: function(data){
         data = ensureJson(data);
         // randomizeList(data.feed.entry);
-        var template = "{{#entry}}<div class='exploreWrapper'><a href='{{gsx$link.$t}}' target='_blank'><img src={{gsx$logo.$t}} /></a><p>{{gsx$description.$t}}</p></div></br>{{/entry}}";
+        var template = "{{#entry}}<div class='exploreWrapper'><a href='{{gsx$link.$t}}' target='_blank'><img src={{gsx$logo.$t}} /></a><p>{{gsx$description.$t}}</p></div><br>{{/entry}}";
         data = ensureJson(data);
         var html = Mustache.to_html(template, data.feed);
         $('#explore').append(html);
@@ -279,6 +249,10 @@ function ensureJson(stringOrJSON){
       loadExplore();
 
       fancyboxize();
+
+      $('.right div.jcarousel-next-vertical').change(function() {
+          console.log('change');
+      });
 
     });
 

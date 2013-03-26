@@ -8,7 +8,6 @@ $fontcolor: black;
 $portfolioImgHeight: 250px;
 
 html {
-
 	@include background(url('../images/outside.png'),
 		radial-gradient(45% 60%, ellipse cover,  $gradient1, $gradient2));
 	background-repeat: no-repeat;         
@@ -17,6 +16,11 @@ html {
 	width: 100%;
 	background-attachment:fixed;
 	background-position:center bottom; 
+	/* IE10 Consumer Preview */ 
+	background-image: url('../images/outside.png'), -ms-radial-gradient(center, circle farthest-corner, $gradient1 0%, $gradient2 100%);
+	/* W3C Markup, IE10 Release Preview */ 
+	background-image: url('../images/outside.png'), radial-gradient(circle farthest-corner at center, $gradient1 0%, $gradient2 100%);
+
 }
 
 body {

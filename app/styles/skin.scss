@@ -10,6 +10,10 @@ $carHeight: 500px;
 $tweetHeight: 400px;
 $portHeight: 61px;
 
+ul#tweetCarousel{
+    height:auto !important;
+}
+
 .jcarousel-skin .jcarousel-direction-rtl {
 	direction: rtl;
 }
