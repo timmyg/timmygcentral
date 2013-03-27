@@ -16,6 +16,14 @@ html {
 	width: 100%;
 	background-attachment:fixed;
 	background-position:center bottom; 
+	// @include background(url('../images/outside.png'),
+	// 	radial-gradient(45% 60%, ellipse cover,  $gradient1, $gradient2));
+	// background-repeat: no-repeat;         
+	// background-size: cover;       
+	// height: 100%; 
+	// width: 110%;
+	// background-attachment:fixed;
+	// background-position:center bottom; 
 	/* IE10 Consumer Preview */ 
 	background-image: url('../images/outside.png'), -ms-radial-gradient(center, circle farthest-corner, $gradient1 0%, $gradient2 100%);
 	/* W3C Markup, IE10 Release Preview */ 
@@ -163,4 +171,11 @@ div#explore {
 		margin: 0 10px 0 0;
 	}
 
+}
+
+div.soc{
+	margin: 0 0 0 50px;
+	img{
+		margin: 10px;
+	}
 }
