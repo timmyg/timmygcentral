@@ -15,12 +15,15 @@
     <link rel="stylesheet" href="styles/skin.css">
     <script src="scripts/vendor/modernizr.min.js"></script>
     <link rel="stylesheet" href="components/fancybox2/jquery.fancybox.css" type="text/css" media="screen" />
-    <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>
-    <!-- <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css"> -->
-    <!-- <link rel="stylesheet" href="components/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" /> -->
-    
+    <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>    
 </head>
 <body>
+
+<div class="oldIEAlert alert alert-block" style="display: none;">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>Upgrade your browser you dinosaur!</h4>
+  To view this site at it's maximum potential, upgrade to the latest IE, or switch to Chrome or Firefox.
+</div>
 
 <div class="navLinks">
   <ul class="nav">
@@ -43,7 +46,6 @@
         </div>
         <div class="span6 main">
            <div id="home">
-            <h2>Home</h2>
             <p>Hey there!</p>
             <p>My name is Tim.  I like to create and learn cool things.</p>
            </div>
@@ -247,6 +249,11 @@ function ensureJson(stringOrJSON){
     });
   }
 
+  function fancyboxize(){
+      $(".fancybox").fancybox({
+      });
+  }   
+
 </script>
 
 <script>
@@ -256,19 +263,17 @@ function ensureJson(stringOrJSON){
       loadRecommendations();
       loadPortfolio();
       loadExplore();
-
       fancyboxize();
-
       $('.right div.jcarousel-next-vertical').change(function() {
           console.log('change');
       });
-
+      var maxSupportedIEVersion = 9;
+      if ($.browser.msie && parseInt($.browser.version, 10) < maxSupportedIEVersion) {
+         $('.oldIEAlert').css('display','block');
+      }
     });
 
-    function fancyboxize(){
-      $(".fancybox").fancybox({
-      });
-    }
+    
 </script>
 </body>
 
