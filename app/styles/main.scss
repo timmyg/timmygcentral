@@ -7,32 +7,90 @@ $gradient2: rgb(255, 102, 0);
 $fontcolor: black;
 $portfolioImgHeight: 250px;
 
+
+// //RESET
+// html, body, div, span, applet, object, iframe,
+// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+// a, abbr, acronym, address, big, cite, code,
+// del, dfn, em, img, ins, kbd, q, s, samp,
+// small, strike, strong, sub, sup, tt, var,
+// b, u, i, center,
+// dl, dt, dd, ol, ul, li,
+// fieldset, form, label, legend,
+// table, caption, tbody, tfoot, thead, tr, th, td,
+// article, aside, canvas, details, embed, 
+// figure, figcaption, footer, header, hgroup, 
+// menu, nav, output, ruby, section, summary,
+// time, mark, audio, video {
+// 	margin: 0;
+// 	padding: 0;
+// 	border: 0;
+// 	font-size: 100%;
+// 	font: inherit;
+// 	vertical-align: baseline;
+// }
+// /* HTML5 display-role reset for older browsers */
+// article, aside, details, figcaption, figure, 
+// footer, header, hgroup, menu, nav, section {
+// 	display: block;
+// }
+// body {
+// 	line-height: 1;
+// }
+// ol, ul {
+// 	list-style: none;
+// }
+// blockquote, q {
+// 	quotes: none;
+// }
+// blockquote:before, blockquote:after,
+// q:before, q:after {
+// 	content: '';
+// 	content: none;
+// }
+// table {
+// 	border-collapse: collapse;
+// 	border-spacing: 0;
+// }
+
+
+
+///END RESET
+
+
 html {
 	@include background(url('../images/outside.png'),
 		radial-gradient(45% 60%, ellipse cover,  $gradient1, $gradient2));
 	background-repeat: no-repeat;         
-	background-size: cover;       
+	// background-size: cover;     
+	min-height: 800px;  
 	height: 100%; 
 	width: 100%;
-	background-attachment:fixed;
-	background-position:center bottom; 
-	// @include background(url('../images/outside.png'),
-	// 	radial-gradient(45% 60%, ellipse cover,  $gradient1, $gradient2));
-	// background-repeat: no-repeat;         
-	// background-size: cover;       
-	// height: 100%; 
-	// width: 110%;
 	// background-attachment:fixed;
-	// background-position:center bottom; 
-	/* IE10 Consumer Preview */ 
+	background-position:center bottom; 
 	background-image: url('../images/outside.png'), -ms-radial-gradient(center, circle farthest-corner, $gradient1 0%, $gradient2 100%);
 	/* W3C Markup, IE10 Release Preview */ 
 	background-image: url('../images/outside.png'), radial-gradient(circle farthest-corner at center, $gradient1 0%, $gradient2 100%);
-
 }
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+	//big screen
+	min-height: 900px; 
+}
+
 
 body {
     background-color:transparent;
+}
+
+a{
+	color: black;
+}
+
+
+a:hover{
+	color: black;
 }
 
 div.row{
@@ -177,5 +235,154 @@ div.soc{
 	margin: 0 0 0 50px;
 	img{
 		margin: 10px;
+	}
+}
+
+.left{
+	// float:left;
+	display: inline-block;
+}
+
+
+@-webkit-keyframes wiggle {
+	0% {-webkit-transform:rotate(4deg);}
+	50% {-webkit-transform:rotate(-4deg);}
+	100% {-webkit-transform:rotate(4deg);}
+}
+ 
+
+@-moz-keyframes wiggle {
+	0% {-moz-transform:rotate(4deg);}
+	50% {-moz-transform:rotate(-4deg);}
+	100% {-moz-transform:rotate(4deg);}
+}
+ 
+
+@keyframes wiggle {
+	0% {transform:rotate(4deg);}
+	50% {transform:rotate(-4deg);}
+	100% {transform:rotate(4deg);}
+}
+////////////////////////////////////////////////////////////
+
+@-webkit-keyframes wiggle2 {
+	0% {-webkit-transform:rotate(-2deg);}
+	50% {-webkit-transform:rotate(2deg);}
+	100% {-webkit-transform:rotate(-2deg);}
+}
+ 
+
+@-moz-keyframes wiggle2 {
+	0% {-moz-transform:rotate(-2deg);}
+	50% {-moz-transform:rotate(2deg);}
+	100% {-moz-transform:rotate(-2deg);}
+}
+ 
+
+@keyframes wiggle2 {
+	0% {transform:rotate(-2deg);}
+	50% {transform:rotate(2deg);}
+	100% {transform:rotate(-2deg);}
+}
+////////////////////////////////////////////////////////////
+
+@-webkit-keyframes wiggle3 {
+	0% {-webkit-transform:rotate(6deg);}
+	50% {-webkit-transform:rotate(-6deg);}
+	100% {-webkit-transform:rotate(6deg);}
+}
+ 
+
+@-moz-keyframes wiggle3 {
+	0% {-moz-transform:rotate(6deg);}
+	50% {-moz-transform:rotate(-6deg);}
+	100% {-moz-transform:rotate(6deg);}
+}
+ 
+
+@keyframes wiggle3 {
+	0% {transform:rotate(6deg);}
+	50% {transform:rotate(-6deg);}
+	100% {transform:rotate(6deg);}
+}
+ 
+////////////////////////////////////////////////////////////
+
+.wiggler1 {
+	-webkit-animation: wiggle 7.2s infinite;
+	-moz-animation: wiggle 7.2s infinite;
+	animation: wiggle 7.2s infinite;
+}
+
+.wiggler2 {
+	-webkit-animation: wiggle2 6s infinite;
+	-moz-animation: wiggle2 6s infinite;
+	animation: wiggle2 6s infinite;
+}
+
+.wiggler3 {
+	-webkit-animation: wiggle 8s infinite;
+	-moz-animation: wiggle 8s infinite;
+	animation: wiggle 8s infinite;
+}
+
+.wiggler4 {
+	-webkit-animation: wiggle 8s infinite;
+	-moz-animation: wiggle 8s infinite;
+	animation: wiggle 8s infinite;
+}
+
+.wiggler5 {
+	-webkit-animation: wiggle3 10s infinite;
+	-moz-animation: wiggle3 10s infinite;
+	animation: wiggle3 10s infinite;
+}
+
+.wiggler6 {
+	-webkit-animation: wiggle2 5.8s infinite;
+	-moz-animation: wiggle2 5.8s infinite;
+	animation: wiggle2 5.8s infinite;
+}
+
+
+div.navLinks{
+
+	.explore, .about, .contact, .portfolio{
+		background: url(../images/nav-sprite.png) no-repeat;
+		width: 240px;
+		height: 160px;
+	}
+
+	.explore{
+		background-position: -480px -1px ;
+		
+	}
+
+	.explore:hover{
+		background-position: -480px -160px ;
+	}
+
+	.about{
+		background-position: 0 0;
+	}
+
+	.about:hover{
+		background-position: 0 -160px ;
+	}
+
+	.contact{
+		background-position: -720px 0;
+	}
+
+	.contact:hover{
+		background-position: -720px -160px ;
+	}
+
+	.portfolio{
+		background-position: -240px 0;
+	}
+
+	.portfolio:hover{
+		background-position: -240px -160px ;
 	}
 }
