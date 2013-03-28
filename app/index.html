@@ -213,7 +213,7 @@ function ensureJson(stringOrJSON){
       success: function(data){
         data = ensureJson(data);
         // randomizeList(data.feed.entry);
-        var template = "{{#entry}}<div class='exploreWrapper'><a href='{{gsx$link.$t}}' target='_blank'><img src={{gsx$logo.$t}} /></a><p>{{gsx$description.$t}}</p></div><br>{{/entry}}";
+        var template = "{{#entry}}<div class='exploreWrapper'><a href='{{gsx$link.$t}}' target='_blank'><img src={{gsx$logo.$t}} /></a><p>{{gsx$description.$t}}</p></div>{{/entry}}";
         data = ensureJson(data);
         var html = Mustache.to_html(template, data.feed);
         $('#explore').append(html);
