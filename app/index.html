@@ -11,7 +11,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 
-    <link rel="stylesheet" href="styles/main.css">
+    
     <link rel="stylesheet" href="styles/skin.css">
     <script src="scripts/vendor/modernizr.min.js"></script>
     <link rel="stylesheet" href="components/fancybox2/jquery.fancybox.css" type="text/css" media="screen" />
@@ -19,24 +19,24 @@
 </head>
 <body>
 
-<div class="oldIEAlert alert alert-block" style="display: none;">
+<div class="oldIEAlert alert alert-block" style="display: none; text-align: center">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <h4>Upgrade your browser you dinosaur!</h4>
-  To view this site at it's maximum potential, upgrade to the latest IE, or switch to Chrome or Firefox.
+  To view this site at it's maximum potential, upgrade to the latest Internet Explorer, or switch to Chrome or Firefox.
 </div>
 
 <div class="navLinks">
   <ul class="nav">
-    <li><a href="#about"><div class="about"></div></a></li>
-    <li><a href="#portfolio"><div class="portfolio"></div></a></li>
-    <li><a href="#explore"><div class="explore"></div></a></li>
-    <li><a href="#contact"><div class="contact"></div></a></li>
+    <li><a href="#about"><div class="about navLink"></div></a></li>
+    <li><a href="#portfolio"><div class="portfolio navLink"></div></a></li>
+    <li><a href="#explore"><div class="explore navLink"></div></a></li>
+    <li><a href="#contact"><div class="contact navLink"></div></a></li>
   </ul>
 </div>
 
      <div class="container">
       <div class="row">
-        <div class="span3 left noSelection side">
+        <div class="span3 left noSelection side hidden-phone">
           <!-- <h3>Recommendations</h3> -->
           <div class="carousel"> &nbsp;
             <ul id='recCarousel' class='jcarousel jcarousel-skin'>
@@ -87,7 +87,7 @@
              <p>bitbucket</p>
  -->           </div>
         </div>
-        <div class="span3 right visible-desktop noSelection side">
+        <div class="span3 right noSelection side hidden-phone">
           <!-- <h3>Tweets</h3> -->
           <div class="carousel">
             <ul id="tweetCarousel" class="jcarousel jcarousel-skin">
@@ -127,8 +127,10 @@
     <script src="scripts/google-spreadsheet.js"></script> 
     <script src="components/jquery-timeago/jquery.timeago.js"></script> 
     <script src="components/jquery-json/jquery.json-2.4.min.js"></script>
-    <script type="text/javascript" src="components/fancybox2/jquery.fancybox.pack.js"></script> <!--do not used pack as patched reg version for jQ 1.9-->
+    <script type="text/javascript" src="components/fancybox2/jquery.fancybox.pack.js">
+  </script> <!--do not used pack as patched reg version for jQ 1.9-->
     <!-- endbuild -->
+    <link rel="stylesheet" href="styles/main.css">
 <script>
 
 //fade in while loading
@@ -156,24 +158,6 @@ function ensureJson(stringOrJSON){
   if($.type(stringOrJSON) === "string")stringOrJSON = $.parseJSON(stringOrJSON);
   return stringOrJSON;
 }
-
-// var size = $('#portfolioCarousel img').size();
-// var clickedIndex;
-
-// function reorder(){
-//   var size = $('#portfolioCarousel img').size();
-//   var beginning = false;
-//   $.each($('#portfolioCarousel li'), function(){
-//     if( $(this).attr('jcarouselindex') === 'x' || beginning){
-//       $(this).attr('jcarouselindex',clickedIndex++);
-//       beginning = true;  
-//     }else{
-//       $(this).attr('jcarouselindex',++size);
-//     }
-//   });
-//   size = size + clickedIndex;
-// }
-// 
 
   function loadRecommendations(){
     $.ajax({
@@ -225,17 +209,19 @@ function ensureJson(stringOrJSON){
       success: function(data){
         data = ensureJson(data);
         // title?
-        var template = "{{#entry}}<li><a href='{{gsx$photo.$t}}' rel='{{gsx$photo.$t}}' class='fancybox'><img src='{{gsx$thumb.$t}}' class='thumb' border='0'/></a></li>{{/entry}}";
+        var template = "{{#entry}}<li><a href='{{gsx$photo.$t}}' title='{{gsx$title.$t}}' rel='{{gsx$photo.$t}}' class='fancybox'><img src='{{gsx$thumb.$t}}' class='thumb' border='0'/></a></li>{{/entry}}";
         data = ensureJson(data);
         var html = Mustache.to_html(template, data.feed);
         $('#portfolio #portfolioImgs').append(html);
         //populate portfolio main image
         var firstImgPath = data.feed.entry[0].gsx$photo.$t;
-        $('#portfolioImgContainer #image').append("<a class=\"fancybox\" href=\""+firstImgPath+"\"><img src=\""+firstImgPath+"\"/></a>");
+        var firstImgTitle = data.feed.entry[0].gsx$title.$t;
+        $('#portfolioImgContainer #image').append("<a class=\"fancybox\" title=\""+firstImgTitle+"\" href=\""+firstImgPath+"\"><img src=\""+firstImgPath+"\"/></a>");
 
         $('#portfolioImgs img').bind('click', function(e){
           var image = $(this).parent().attr("rel");
-            var html = "<a class=\"fancybox\" href=\""+image+"\">"+
+          var title = $(this).parent().attr("title");
+            var html = "<a class=\"fancybox\" href=\""+image+"\" title=\""+title+"\">"+
                        "  <img src=\""+image+"\"/>"+
                        "</a>";
             $('#image').hide();
@@ -270,6 +256,17 @@ function ensureJson(stringOrJSON){
       var maxSupportedIEVersion = 9;
       if ($.browser.msie && parseInt($.browser.version, 10) < maxSupportedIEVersion) {
          $('.oldIEAlert').css('display','block');
+      }
+
+      var picData = [
+'https://dl.dropbox.com/u/57301368/tgc/portfolio/7.png',
+'https://dl.dropbox.com/u/57301368/tgc/portfolio/8.png',
+'https://dl.dropbox.com/u/57301368/tgc/portfolio/9.png'
+      ]
+      picO = new Array()
+      for(i=0; i < picData.length; i++){
+          picO[i] = new Image();
+          picO[i].src = picData[i];
       }
     });
 

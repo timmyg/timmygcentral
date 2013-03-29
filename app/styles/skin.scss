@@ -1,4 +1,4 @@
-$tweetWidth: 300px;
+$tweetWidth: 280px;
 $recWidth: 220px;
 $portWidth: 100%;
 //carousel buttons
@@ -50,7 +50,7 @@ ul#tweetCarousel{
 .jcarousel-skin .jcarousel-container-horizontal {
     width: $recWidth;
     height: $carHeight;
-    padding: 20px 40px;
+    // padding: 20px 40px;
 }
 }
 
@@ -85,7 +85,7 @@ ul#tweetCarousel{
 .jcarousel-skin .jcarousel-next-horizontal {
     position: absolute;
     top: 43px;
-    right: 5px;
+    right: -25px;
     width: 32px;
     height: 32px;
     cursor: pointer;
@@ -118,7 +118,7 @@ ul#tweetCarousel{
 .jcarousel-skin .jcarousel-prev-horizontal {
     position: absolute;
     top: 43px;
-    left: 5px;
+    left: -25px;
     width: 32px;
     height: 32px;
     cursor: pointer;

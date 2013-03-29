@@ -98,13 +98,6 @@ div.row{
 	font-family: 'Wellfleet', cursive !important;
 }
 
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-  img.bg {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
-}
-
 div.navLinks{
 	height: 140px;
 }
@@ -163,6 +156,10 @@ div.navbar-inner a.brand{
 	margin-left: auto;
 	margin-right: auto;
 	float: none;
+}
+
+div.main{
+	margin-top: 30px;
 }
 
 div.main > div{
@@ -384,5 +381,111 @@ div.navLinks{
 
 	.portfolio:hover{
 		background-position: -240px -160px ;
+	}
+}
+
+
+@media all and (max-width: 1200px) and (min-width: 905px){
+	ul#tweetCarousel li {
+		width: 90%;
+	}
+
+	div.right{
+		margin-left: 0;
+	}
+
+	div.navLinks{
+
+		.explore, .about, .contact, .portfolio{
+			background: url(../images/nav-sprite-med.png) no-repeat;
+			width: 216px;
+			height: 144px;
+		}
+
+		.explore{
+			background-position: -432px -1px ;
+			
+		}
+
+		.explore:hover{
+			background-position: -432px -144px ;
+		}
+
+		.about{
+			background-position: 0 0;
+		}
+
+		.about:hover{
+			background-position: 0 -144px ;
+		}
+
+		.contact{
+			background-position: -648px 0;
+		}
+
+		.contact:hover{
+			background-position: -648px -144px ;
+		}
+
+		.portfolio{
+			background-position: -216px 0;
+		}
+
+		.portfolio:hover{
+			background-position: -216px -144px ;
+		}
+	}
+}
+
+@media all and (max-width: 905px) {
+
+	ul#tweetCarousel li {
+		width: 75%;
+	}
+
+	.right .jcarousel-clip{
+		width: 250px;
+	}
+
+	div.navLinks{
+
+		.explore, .about, .contact, .portfolio{
+		background: url(../images/nav-sprite-small.png) no-repeat;
+		width: 120px;
+		height: 80px;
+		}
+
+		.explore{
+			background-position: -240px -1px ;
+			
+		}
+
+		.explore:hover{
+			background-position: -240px -80px ;
+		}
+
+		.about{
+			background-position: 0 0;
+		}
+
+		.about:hover{
+			background-position: 0 -80px ;
+		}
+
+		.contact{
+			background-position: -360px 0;
+		}
+
+		.contact:hover{
+			background-position: -360px -80px ;
+		}
+
+		.portfolio{
+			background-position: -120px 0;
+		}
+
+		.portfolio:hover{
+			background-position: -120px -80px ;
+		}
 	}
 }
