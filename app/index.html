@@ -15,7 +15,16 @@
     <link rel="stylesheet" href="styles/skin.css">
     <script src="scripts/vendor/modernizr.min.js"></script>
     <link rel="stylesheet" href="components/fancybox2/jquery.fancybox.css" type="text/css" media="screen" />
-    <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>    
+    <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>  
+
+    <!-- start Mixpanel -->
+    <script type="text/javascript">
+      (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+      typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,
+      e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+      mixpanel.init("69da9f3d3eeea6f70c0b69eeab8e7d66");
+    </script>
+<!-- end Mixpanel -->  
 </head>
 <body>
 
@@ -29,14 +38,14 @@
   <ul class="nav">
     <li><a href="#about"><div class="about navLink"></div></a></li>
     <li><a href="#portfolio"><div class="portfolio navLink"></div></a></li>
-    <li><a href="#explore"><div class="explore navLink"></div></a></li>
+    <li class="clearBoth"><a href="#explore"><div class="explore navLink"></div></a></li>
     <li><a href="#contact"><div class="contact navLink"></div></a></li>
   </ul>
 </div>
 
      <div class="container">
       <div class="row">
-        <div class="span3 left noSelection side hidden-phone">
+        <div class="span3 left noSelection side">
           <!-- <h3>Recommendations</h3> -->
           <div class="carousel"> &nbsp;
             <ul id='recCarousel' class='jcarousel jcarousel-skin'>
@@ -45,14 +54,16 @@
           </div>
         </div>
         <div class="span6 main">
-           <div id="home">
+           <!-- <div id="home">
             <p>Hey there!</p>
             <p>My name is Tim.  I like to create and learn cool things.</p>
-           </div>
+           </div> -->
            <div id="about">
-             <p>About me- bio Lorem ipsum dolor sit amet, consectetur adipisicing elit. In dicta dolor magni vel quaerat ab voluptas asperiores natus tempore placeat nulla repellendus consequuntur nisi fuga libero! Optio voluptates magnam tempore.</p>
-             <a href="https://dl.dropbox.com/u/57301368/tgc/TimothyGiblin_Resume.pdf" target="_blank"><button class="btn btn-inverse">Résumé</button></a>
-             <button class="btn btn-inverse" href="#aboutModal" data-toggle="modal">About This Site</button>
+             <p><span class="tagline">Ahoy!<br>My name is Tim. I love learning and creating new ways to solve problems big and small.</span></p>
+             <div class="buttons">
+               <a href="https://dl.dropbox.com/u/57301368/tgc/TimothyGiblin_Resume.pdf" target="_blank"><button class="btn btn-inverse">Résumé</button></a>
+               <button class="btn btn-inverse" href="#aboutModal" data-toggle="modal">About This Site</button>
+              </div>
            </div>
            <div id="portfolio">
   <div id="portfolioImgContainer">
@@ -72,12 +83,16 @@
            <div id="contact">
              <!-- <h2>Contact</h2> -->
              <div class="soc">
-              <div class="wiggler1 left"><a href="https://twitter.com/TimGiblin" target='_blank'><img src="images/social/twitter.png" alt="" class="wiggler left"></a></div>
-               <div class="wiggler2 left"><a href="https://www.linkedin.com/pub/tim-giblin/11/369/670/" target='_blank'><img src="images/social/linkedin.png" alt=""></a></div>
-               <div class="wiggler3 left"><a href="mailto:timmyg13@gmail.com"><img src="images/social/email.png" alt=""></a></div>
-               <div class="wiggler4 left"><a href="https://plus.google.com/u/0/106705479981740306704" target='_blank'><img src="images/social/g+.png" alt=""></a></div>
-               <div class="wiggler5 left"><a href="https://www.facebook.com/giblintj?ref=tn_tnmn" target='_blank'><img src="images/social/facebook.png" alt=""></a></div>
-               <div class="wiggler6 left"><a href="https://github.com/timmyg" target='_blank'><img src="images/social/github.png" alt=""></a></div>
+              <span>
+                <div class="wiggler1 left"><a href="https://twitter.com/TimGiblin" target='_blank'><img src="images/social/twitter.png" alt="" class="wiggler left"></a></div>
+                 <div class="wiggler2 left"><a href="https://www.linkedin.com/pub/tim-giblin/11/369/670/" target='_blank'><img src="images/social/linkedin.png" alt=""></a></div>
+                 <div class="wiggler3 left"><a href="mailto:timmyg13@gmail.com"><img src="images/social/email.png" alt=""></a></div>
+               </span>  
+               <span class="clearBoth"> 
+                 <div class="wiggler4 left"><a href="https://plus.google.com/u/0/106705479981740306704" target='_blank'><img src="images/social/g+.png" alt=""></a></div>
+                 <div class="wiggler5 left"><a href="https://www.facebook.com/giblintj?ref=tn_tnmn" target='_blank'><img src="images/social/facebook.png" alt=""></a></div>
+                 <div class="wiggler6 left"><a href="https://github.com/timmyg" target='_blank'><img src="images/social/github.png" alt=""></a></div>
+               </span>
             </div>
 <!--              <p>twitter</p>
              <p>facebook</p>
@@ -87,7 +102,7 @@
              <p>bitbucket</p>
  -->           </div>
         </div>
-        <div class="span3 right noSelection side hidden-phone">
+        <div class="span3 right noSelection side">
           <!-- <h3>Tweets</h3> -->
           <div class="carousel">
             <ul id="tweetCarousel" class="jcarousel jcarousel-skin">
@@ -105,8 +120,8 @@
       <h3 id="myModalLabel">About This Site</h3>
     </div>
     <div class="modal-body">
-      <p>How site was built</p>
-      <p>Explain logo</p>
+      <p>I built this site on <a href="https://github.com/timmyg/timmygcentral" target="_blank">GitHub</a> using <a href="http://yeoman.io/" target="_blank">Yeoman</a>, which is a super fast way to build HTML5 apps. Importing new javascript and other components is as easy as typing 'yeoman install backbone' (for example) and it installs it in your project automatically. <a href="http://sass-lang.com" target="_blank">SASS</a> (CSS on steroids) comes built in and is very, very cool.  I used <a href="http://www.sublimetext.com/" target="_blank">Sublime Text 2</a> which is also extremely powerful and fast, and completely mindblowing how efficient it can make your workflow. I used <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a> framework, and <a href="http://sorgalla.com/jcarousel/" target="_blank">jCarousel</a> for the LinkedIn Recommendations and Twitter feed. I am using Google Drive API to host a lot of the data (the explore page, portfolio images, and LinkedIn recommendations...there is a linkedIn API but you need to authenticate and I didn't want to have to create server side code just for that). I am an aspiring rookie designer but designed everything in Adobe Illustrator through <a href="http://net.tutsplus.com/" target="_blank">Nettuts+</a> tutorials and learning it along the way.</p>
+      <p>If you have any questions or any feedback, please hit me up through the contact section.</p>
     </div>
     <div class="modal-footer">
       <button id="okButton" class="btn" data-dismiss="modal"
@@ -258,16 +273,17 @@ function ensureJson(stringOrJSON){
          $('.oldIEAlert').css('display','block');
       }
 
-      var picData = [
-'https://dl.dropbox.com/u/57301368/tgc/portfolio/7.png',
-'https://dl.dropbox.com/u/57301368/tgc/portfolio/8.png',
-'https://dl.dropbox.com/u/57301368/tgc/portfolio/9.png'
-      ]
-      picO = new Array()
-      for(i=0; i < picData.length; i++){
-          picO[i] = new Image();
-          picO[i].src = picData[i];
-      }
+      mixpanel.track("Visit");
+//       var picData = [
+// 'https://dl.dropbox.com/u/57301368/tgc/portfolio/7.png',
+// 'https://dl.dropbox.com/u/57301368/tgc/portfolio/8.png',
+// 'https://dl.dropbox.com/u/57301368/tgc/portfolio/9.png'
+//       ]
+//       picO = new Array()
+//       for(i=0; i < picData.length; i++){
+//           picO[i] = new Image();
+//           picO[i].src = picData[i];
+//       }
     });
 
     

@@ -27,7 +27,7 @@
 		},
 
 		default: function(module) {
-			if(module==='')module='home';
+			if(module==='')module='about';
 			$('div.main > div').hide();
 			$('div.main div#'+module).fadeIn();
 			//hacky way to show thumbnails because they arent showing.

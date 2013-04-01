@@ -8,55 +8,6 @@ $fontcolor: black;
 $portfolioImgHeight: 250px;
 
 
-// //RESET
-// html, body, div, span, applet, object, iframe,
-// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-// a, abbr, acronym, address, big, cite, code,
-// del, dfn, em, img, ins, kbd, q, s, samp,
-// small, strike, strong, sub, sup, tt, var,
-// b, u, i, center,
-// dl, dt, dd, ol, ul, li,
-// fieldset, form, label, legend,
-// table, caption, tbody, tfoot, thead, tr, th, td,
-// article, aside, canvas, details, embed, 
-// figure, figcaption, footer, header, hgroup, 
-// menu, nav, output, ruby, section, summary,
-// time, mark, audio, video {
-// 	margin: 0;
-// 	padding: 0;
-// 	border: 0;
-// 	font-size: 100%;
-// 	font: inherit;
-// 	vertical-align: baseline;
-// }
-// /* HTML5 display-role reset for older browsers */
-// article, aside, details, figcaption, figure, 
-// footer, header, hgroup, menu, nav, section {
-// 	display: block;
-// }
-// body {
-// 	line-height: 1;
-// }
-// ol, ul {
-// 	list-style: none;
-// }
-// blockquote, q {
-// 	quotes: none;
-// }
-// blockquote:before, blockquote:after,
-// q:before, q:after {
-// 	content: '';
-// 	content: none;
-// }
-// table {
-// 	border-collapse: collapse;
-// 	border-spacing: 0;
-// }
-
-
-
-///END RESET
-
 
 html {
 	@include background(url('../images/outside.png'),
@@ -101,6 +52,29 @@ div.row{
 div.navLinks{
 	height: 140px;
 }
+
+div#about{
+	.buttons{
+		text-align: center;
+		padding-top: 30px;
+		float: right;
+		button{
+			font-family: 'Wellfleet', cursive !important;
+		}
+	}
+	.tagline{
+		font-size: 2.6em;
+		line-height: 1.2em;
+	}
+}
+
+div#aboutModal, div#aboutModal button{
+	font-family: 'Wellfleet', cursive !important;
+	a{
+		text-decoration: underline;
+	}
+}
+
 
 
 .noSelection {
@@ -393,6 +367,13 @@ div.navLinks{
 	div.right{
 		margin-left: 0;
 	}
+	div.soc img{
+		width: 80%;
+	}
+
+	// div.main{
+	// 	width: 100%;
+	// }
 
 	div.navLinks{
 
@@ -437,22 +418,113 @@ div.navLinks{
 	}
 }
 
-@media all and (max-width: 905px) {
+@media all and (max-width: 979px) {
 
 	ul#tweetCarousel li {
 		width: 75%;
+	}
+
+	div.row{
+		margin: 0 20px;
+	}	
+
+	.side{
+		display: none;
 	}
 
 	.right .jcarousel-clip{
 		width: 250px;
 	}
 
+	.main{
+		float: none;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	div.soc img{
+		width: 70%;
+	}
+
 	div.navLinks{
 
 		.explore, .about, .contact, .portfolio{
 		background: url(../images/nav-sprite-small.png) no-repeat;
-		width: 120px;
-		height: 80px;
+		width: 180px;
+		height: 120px;
+		}
+
+		.explore{
+		background-position: -360px -1px ;
+		
+		}
+
+		.explore:hover{
+			background-position: -360px -120px ;
+		}
+
+		.about{
+			background-position: 0 0;
+		}
+
+		.about:hover{
+			background-position: 0 -120px ;
+		}
+
+		.contact{
+			background-position: -540px 0;
+		}
+
+		.contact:hover{
+			background-position: -540px -120px ;
+		}
+
+			.portfolio{
+			background-position: -180px 0;
+		}
+
+		.portfolio:hover{
+			background-position: -180px -120px ;
+		}
+
+		#recCarousel p{
+			width: 170px;
+		}
+
+		.left{
+			.jcarousel-next{
+				right: 30px;
+
+			}
+		}
+
+		div.row{
+			margin-left: -40px;
+		}
+
+		div.main{
+			padding-left: 30px;
+			width: 100%;
+		}
+
+	}
+}		
+
+
+@media all and (max-width: 800px) {
+
+	div.navLinks{
+
+		height: 90px;
+
+		.explore, .about, .contact, .portfolio{
+			background: url(../images/nav-sprite-mobile.png) no-repeat;
+			width: 120px;
+			height: 80px;
+		}
+		div.main{
+			width: 100%;
+			margin-top: 70px;
 		}
 
 		.explore{
@@ -487,5 +559,26 @@ div.navLinks{
 		.portfolio:hover{
 			background-position: -120px -80px ;
 		}
+	}
+}
+
+@media all and (max-width: 600px) {
+	.clearBoth{
+		clear: both;
+	}
+
+	div.main{
+		margin-top: 70px;
+	}
+
+	div.left{
+		width: 110px;
+		float: left;
+		margin: 0;
+	}
+
+	div.row{
+		margin: 0;
+		margin-left: -20px;
 	}
 }
