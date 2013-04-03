@@ -14,14 +14,16 @@ html {
 		radial-gradient(45% 60%, ellipse cover,  $gradient1, $gradient2));
 	background-repeat: no-repeat;         
 	// background-size: cover;     
-	min-height: 800px;  
+	// min-height: 800px;  
 	height: 100%; 
 	width: 100%;
 	// background-attachment:fixed;
 	background-position:center bottom; 
+	-moz-background-size: 100% 100%;         /* Gecko 1.9.2 (Firefox 3.6) */
 	background-image: url('../images/outside.png'), -ms-radial-gradient(center, circle farthest-corner, $gradient1 0%, $gradient2 100%);
 	/* W3C Markup, IE10 Release Preview */ 
 	background-image: url('../images/outside.png'), radial-gradient(circle farthest-corner at center, $gradient1 0%, $gradient2 100%);
+	position:absolute;
 }
 
 /* Large screens ----------- */
