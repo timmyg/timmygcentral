@@ -59,9 +59,11 @@
             <p>My name is Tim.  I like to create and learn cool things.</p>
            </div> -->
            <div id="about">
-             <p><span class="tagline">Ahoy!<br>My name is Tim. I love learning and creating new ways to solve problems big and small.</span></p>
+             <p><span class="tagline"><span class="ahoy">Ahoy!</span>
+              <br>My name is Tim. I love learning and creating new ways to solve problems big and small.</span></p>
              <div class="buttons">
                <a href="https://dl.dropbox.com/u/57301368/tgc/TimothyGiblin_Resume.pdf" target="_blank"><button class="btn btn-inverse">Résumé</button></a>
+               <img src="../images/tg.png" alt="">
                <button class="btn btn-inverse" href="#aboutModal" data-toggle="modal">About This Site</button>
               </div>
            </div>
@@ -195,7 +197,7 @@ function ensureJson(stringOrJSON){
             auto: 20
           });
         $('#recCarousel').animate({opacity: 1}, 1000);
-        $('.left .jcarousel-item').wrap('<a target="_blank" href="https://www.linkedin.com/pub/tim-giblin/11/369/670/" />');
+        $('.left .jcarousel-item').wrap('<a target="_blank" title="LinkedIn Recommendation" href="https://www.linkedin.com/pub/tim-giblin/11/369/670/" />');
       }
     });
   }

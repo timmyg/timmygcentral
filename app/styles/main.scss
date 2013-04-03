@@ -57,7 +57,7 @@ div#about{
 	.buttons{
 		text-align: center;
 		padding-top: 30px;
-		float: right;
+		// float: right;
 		button{
 			font-family: 'Wellfleet', cursive !important;
 		}
@@ -65,6 +65,13 @@ div#about{
 	.tagline{
 		font-size: 2.6em;
 		line-height: 1.2em;
+	}
+	.ahoy{
+		font-size: 2em;
+		line-height: 1.2em;
+	}
+	img{
+		width: 110px;
 	}
 }
 
@@ -446,6 +453,10 @@ div.navLinks{
 		width: 70%;
 	}
 
+	.tagline{
+		font-size: 2.5em;
+	}
+
 	div.navLinks{
 
 		.explore, .about, .contact, .portfolio{
@@ -527,6 +538,10 @@ div.navLinks{
 			margin-top: 70px;
 		}
 
+		.tagline{
+			font-size: 2.3em;
+		}
+
 		.explore{
 			background-position: -240px -1px ;
 			
@@ -572,13 +587,26 @@ div.navLinks{
 	}
 
 	div.left{
-		width: 110px;
-		float: left;
-		margin: 0;
+		width: 100px;
+	// 	float: left;
+	// 	margin: 0;
 	}
 
 	div.row{
-		margin: 0;
-		margin-left: -20px;
+		// margin: 0 inherit;
+		// margin-left: -20px;
+	}
+
+	div#about {
+
+	.tagline{
+		font-size: 2.1em;
+	}
+	img{
+		float:left;
+	}
+	button{
+		margin-top: 20px;
+	}
 	}
 }
