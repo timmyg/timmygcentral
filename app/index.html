@@ -59,8 +59,10 @@
             <p>My name is Tim.  I like to create and learn cool things.</p>
            </div> -->
            <div id="about">
-             <p><span class="tagline"><span class="ahoy">Ahoy!</span>
-              <br>My name is Tim. I love learning and creating new ways to solve problems big and small.</span></p>
+            <span class="tagline">
+               <p><span class="taglineShout"><span class="ahoy">Ahoy!</span>
+                <br>My name is Tim. I love learning and creating new ways to solve problems big and small.</span></p>
+              </span>
              <div class="buttons">
                <a href="https://dl.dropbox.com/u/57301368/tgc/TimothyGiblin_Resume.pdf" target="_blank"><button class="btn btn-inverse">Résumé</button></a>
                <!-- <img src="../images/tg.png" alt=""> -->
@@ -178,9 +180,11 @@ function ensureJson(stringOrJSON){
 
   function loadRecommendations(){
     $.ajax({
+      cache: false,
       type: "GET",
       url: tgc_recommendations_uri,
-      format: "jsonp",
+      dataType: "jsonp",
+      async:false,
       success: function(data){
         $('#recCarousel').css('opacity','0')
         data = ensureJson(data);
