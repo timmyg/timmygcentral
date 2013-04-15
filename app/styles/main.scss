@@ -26,6 +26,7 @@ html {
 	position:absolute;
 }
 
+
 /* Large screens ----------- */
 @media only screen and (min-width : 1824px) {
 	//big screen
@@ -56,6 +57,15 @@ div.navLinks{
 }
 
 div#about{
+
+	.tagline{
+		color: black;
+	   // -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+	   // -webkit-text-stroke-width: 1px;
+	   // -webkit-text-stroke-color: grey;
+		-webkit-text-stroke: 1px grey;
+	}
+   
 	.buttons{
 		text-align: center;
 		padding-top: 30px;
@@ -64,7 +74,7 @@ div#about{
 			font-family: 'Wellfleet', cursive !important;
 		}
 	}
-	.tagline{
+	.taglineShout{
 		font-size: 2.6em;
 		line-height: 1.2em;
 	}
@@ -380,10 +390,22 @@ div.navLinks{
 		width: 80%;
 	}
 
-	// div.main{
-	// 	width: 100%;
-	// }
-
+	html {
+				@include background(url('../images/outside-med.png'),
+		radial-gradient(45% 60%, ellipse cover,  $gradient1, $gradient2));
+		background-repeat: no-repeat;         
+		// background-size: cover;     
+		// min-height: 800px;  
+		height: 100%; 
+		width: 100%;
+		// background-attachment:fixed;
+		background-position:center bottom; 
+		-moz-background-size: 100% 100%;         /* Gecko 1.9.2 (Firefox 3.6) */
+		background-image: url('../images/outside-med.png'), -ms-radial-gradient(center, circle farthest-corner, $gradient1 0%, $gradient2 100%);
+		/* W3C Markup, IE10 Release Preview */ 
+		background-image: url('../images/outside-med.png'), radial-gradient(circle farthest-corner at center, $gradient1 0%, $gradient2 100%);
+		position:absolute;
+	}
 	div.navLinks{
 
 		.explore, .about, .contact, .portfolio{
@@ -455,8 +477,25 @@ div.navLinks{
 		width: 70%;
 	}
 
-	.tagline{
+	.taglineShout{
 		font-size: 2.5em;
+	}
+
+	html {
+		@include background(url('../images/outside-small.png'),
+		radial-gradient(45% 60%, ellipse cover,  $gradient1, $gradient2));
+		background-repeat: no-repeat;         
+		// background-size: cover;     
+		// min-height: 800px;  
+		height: 100%; 
+		width: 100%;
+		// background-attachment:fixed;
+		background-position:center bottom; 
+		-moz-background-size: 100% 100%;         /* Gecko 1.9.2 (Firefox 3.6) */
+		background-image: url('../images/outside-small.png'), -ms-radial-gradient(center, circle farthest-corner, $gradient1 0%, $gradient2 100%);
+		/* W3C Markup, IE10 Release Preview */ 
+		background-image: url('../images/outside-small.png'), radial-gradient(circle farthest-corner at center, $gradient1 0%, $gradient2 100%);
+		position:absolute;
 	}
 
 	div.navLinks{
@@ -526,6 +565,23 @@ div.navLinks{
 
 @media all and (max-width: 800px) {
 
+	html {
+		@include background(url('../images/outside-mobile.png'),
+		radial-gradient(45% 60%, ellipse cover,  $gradient1, $gradient2));
+		background-repeat: no-repeat;         
+		// background-size: cover;     
+		// min-height: 800px;  
+		height: 100%; 
+		width: 100%;
+		// background-attachment:fixed;
+		background-position:center bottom; 
+		-moz-background-size: 100% 100%;         /* Gecko 1.9.2 (Firefox 3.6) */
+		background-image: url('../images/outside-mobile.png'), -ms-radial-gradient(center, circle farthest-corner, $gradient1 0%, $gradient2 100%);
+		/* W3C Markup, IE10 Release Preview */ 
+		background-image: url('../images/outside-mobile.png'), radial-gradient(circle farthest-corner at center, $gradient1 0%, $gradient2 100%);
+		position:absolute;
+	}
+
 	div.navLinks{
 
 		height: 90px;
@@ -540,7 +596,7 @@ div.navLinks{
 			margin-top: 70px;
 		}
 
-		.tagline{
+		.taglineShout{
 			font-size: 2.3em;
 		}
 
@@ -601,8 +657,13 @@ div.navLinks{
 
 	div#about {
 
-	.tagline{
-		font-size: 2.1em;
+	.ahoy{
+		font-size: 2em;
+		line-height: 1.2em;
+	}
+
+	.taglineShout{
+		font-size: 1.6em;
 	}
 	img{
 		float:left;

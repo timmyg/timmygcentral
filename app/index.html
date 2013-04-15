@@ -11,7 +11,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 
-    
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/skin.css">
     <script src="scripts/vendor/modernizr.min.js"></script>
     <link rel="stylesheet" href="components/fancybox2/jquery.fancybox.css" type="text/css" media="screen" />
@@ -25,6 +25,10 @@
       mixpanel.init("69da9f3d3eeea6f70c0b69eeab8e7d66");
     </script>
 <!-- end Mixpanel -->  
+
+<script>
+    $('div.main').css('visibility','hidden');
+</script>
 </head>
 <body>
 
@@ -149,7 +153,7 @@
     <script type="text/javascript" src="components/fancybox2/jquery.fancybox.pack.js">
   </script> <!--do not used pack as patched reg version for jQ 1.9-->
     <!-- endbuild -->
-    <link rel="stylesheet" href="styles/main.css">
+    
 <script>
 
 //fade in while loading
@@ -290,6 +294,11 @@ function ensureJson(stringOrJSON){
 //           picO[i] = new Image();
 //           picO[i].src = picData[i];
 //       }
+    });
+
+    $(window).load(function() {
+      // When the page has loaded
+      $("body").fadeIn(2000);
     });
 
     
