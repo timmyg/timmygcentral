@@ -19,8 +19,9 @@ App.TweetsCollection = (function() {
       count = 10;
     }
     if (apiUrl == null) {
-      apiUrl = 'https://api.twitter.com/1/favorites.json';
-
+      // apiUrl = 'https://api.twitter.com/1/favorites.json';
+      apiUrl = 'http://api4-tgc.rhcloud.com/twitter/favorites';
+      // apiUrl = 'http://localhost:3000/twitter/favorites';
     }
     this.user = user;
     this.apiUrl = apiUrl;
@@ -28,8 +29,7 @@ App.TweetsCollection = (function() {
   }
 
   TweetsCollection.prototype.fetch = function() {
-    // console.log("" + this.apiUrl + "?screen_name=" + this.user + "&count=" + this.count + "&callback=?");
-    return $.getJSON("" + this.apiUrl + "?screen_name=" + this.user + "&count=" + this.count + "&callback=?");
+    return $.getJSON("" + this.apiUrl);
   };
 
   return TweetsCollection;
@@ -48,7 +48,12 @@ App.TweetsView = (function() {
     var _this = this;
     $.each(this.tweets, function(index, tweet) {
       var timeago = "<br><abbr class=\"timeago\" title=\""+tweet.created_at+"\"></abbr>";
-      return _this.el.append("<li><div style='opacity:.3;position:absolute; height: 120px;z-index:-1;width:300px;background-image: url("+tweet.user.profile_image_url +"); background-repeat:no-repeat; background-position:center; background-size: 100%;overflow:hidden;'></div><a class='tweeter' href='https:\/\/twitter.com\/"+tweet.user.screen_name+"' target=\"_blank\">"+tweet.user.name+"</a><div class='tweetTxt'>" + replaceURLWithHTMLLinks(tweet.text) +timeago+ "</div></li>");
+      try{
+        var html = _this.el.append("<li><div style='opacity:.3;position:absolute; height: 120px;z-index:-1;width:300px;background-image: url("+tweet.user.profile_image_url +"); background-repeat:no-repeat; background-position:center; background-size: 100%;overflow:hidden;'></div><a class='tweeter' href='https:\/\/twitter.com\/"+tweet.user.screen_name+"' target=\"_blank\">"+tweet.user.name+"</a><div class='tweetTxt'>" + replaceURLWithHTMLLinks(tweet.text) +timeago+ "</div></li>");
+      }catch(e){
+        console.log("error getting tweets! " + e);
+      }
+      return html;
       // return _this.el.append("<li>\n  <img src='" + tweet.user.profile_image_url + "' alt='" + tweet.screen_name + "'>\n  </li>");
     });
 

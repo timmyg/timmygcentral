@@ -16,6 +16,7 @@
     <script src="scripts/vendor/modernizr.min.js"></script>
     <link rel="stylesheet" href="components/fancybox2/jquery.fancybox.css" type="text/css" media="screen" />
     <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>  
+    <script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
 
     <!-- start Mixpanel -->
     <script type="text/javascript">
@@ -44,6 +45,7 @@
     <li><a href="#portfolio"><div class="portfolio navLink"></div></a></li>
     <li class="clearBoth"><a href="#explore"><div class="explore navLink"></div></a></li>
     <li><a href="#contact"><div class="contact navLink"></div></a></li>
+    <li><a href="#blog"><div class="blog navLink"></div></a></li>
   </ul>
 </div>
 
@@ -109,6 +111,7 @@
              <p>github</p>
              <p>bitbucket</p>
  -->           </div>
+             <div id="blog"></div>
         </div>
         <div class="span3 right noSelection side">
           <!-- <h3>Tweets</h3> -->
@@ -137,8 +140,19 @@
     </div>
   </div>
 
+  <div class="modal hide" id="blog-modal" tabindex="-1">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"
+        aria-hidden="true"></button>
+      <h3 class="blog-title"></h3> <button id="okButton" style class="btn" data-dismiss="modal" aria-hidden="true">X</button>
+    </div>
+    <div class="blog-content">
+    </div>
+    <div class="blog-footer">
+    </div>
+  </div>
+
     <!-- build:js scripts/plugins.js -->
-    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="components/underscore/underscore.js"></script>
     <script src="components/backbone/backbone.js"></script>
     <script src="components/mustache/mustache.js"></script>
@@ -146,6 +160,7 @@
     <script src="components/jcarousel/jquery.jcarousel.min.js"></script>
     <script src="components/jquery-easing/jquery.easing.min.js"></script>
     <script src="scripts/tweets.js"></script> 
+    <!--<script src="scripts/jquery.jsonp-2.4.0.min.js"></script> -->
     <script src="scripts/app.js"></script> 
     <script src="scripts/google-spreadsheet.js"></script> 
     <script src="components/jquery-timeago/jquery.timeago.js"></script> 
@@ -176,6 +191,7 @@ $('.carousel').hide().delay(500).fadeIn(900);
 var tgc_recommendations_uri = "https://spreadsheets.google.com/feeds/list/0AsRjUFPfaIWvdGxPT3U0ZGRNUnFGakwwQnpKQi1Hbnc/od6/public/values?alt=json";
 var tgc_explore_uri = "https://spreadsheets.google.com/feeds/list/0AsRjUFPfaIWvdHZ5ZjhqMVdrcnlSUzh3ZU56YV9XZ2c/od6/public/values?alt=json";
 var tgc_portfolio_uri = "https://spreadsheets.google.com/feeds/list/0AsRjUFPfaIWvdFdnR3RIVHV3NGU1UnpjYWh3RjNSclE/od6/public/values?alt=json";
+var tgc_wp_blog = "http://timmyg13.byethost12.com/tgc-wp/?json=get_recent_posts";
 
 function ensureJson(stringOrJSON){
   if($.type(stringOrJSON) === "string")stringOrJSON = $.parseJSON(stringOrJSON);
@@ -206,8 +222,50 @@ function ensureJson(stringOrJSON){
           });
         $('#recCarousel').animate({opacity: 1}, 1000);
         $('.left .jcarousel-item').wrap('<a target="_blank" title="LinkedIn Recommendation" href="https://www.linkedin.com/pub/tim-giblin/11/369/670/" />');
+        if( window.location.hash === '' || window.location.hash === '#about'){
+          $('div.main #about').css('visibility','visible').hide().delay(2000).fadeIn(3000);
+          $('div.main #about').children().css('visibility','visible').hide().delay(2000).fadeIn(7000);
+        }
       }
     });
+  } 
+
+  function loadBlog(){
+    $.ajax({
+      cache: false,
+      type: "GET",
+      url: tgc_wp_blog,
+      dataType: "jsonp",
+      async:false,
+      success: function(data){
+        $('#blog').css('opacity','0')
+        data = ensureJson(data);
+        randomizeList(data);
+        var template = "<ul> {{#posts}} <li><a class='blog-title' href='#blog-modal' data-toggle='modal'><h3 class=\"blog-title\">{{title}}</h3></a> {{{excerpt}}} <div class='content hidden'>{{{content}}}</div> </li> {{/posts}} </ul>"; 
+        data = ensureJson(data);
+        var str = Mustache.to_html(template, data);
+        var html = $.parseHTML(str);
+        $('#blog').html(str);
+        $('#blog').animate({opacity: 1}, 1000);
+        loadBlogListeners();
+        // $('.left .jcarousel-item').wrap('<a target="_blank" title="LinkedIn Recommendation" href="https://www.linkedin.com/pub/tim-giblin/11/369/670/" />');
+        // $('div.main #about').css('visibility','visible').hide().delay(2000).fadeIn(3000);
+        // $('div.main #about').children().css('visibility','visible').hide().delay(2000).fadeIn(7000);
+      }
+    });
+  }
+
+  function loadBlogListeners(){
+    $('a.blog-title').click(function(b){
+      console.log($(this));
+      $('#blog-modal .blog-title').html($(this).text());
+      $('#blog-modal .blog-content').html($(this).siblings('.content').text());
+      // $('#blog-modal').show();
+      $('#blog-modal #okButton').click(function(){
+        $('#blog-modal').hide();
+      });
+    });
+
   }
 
   function loadExplore(){
@@ -256,9 +314,29 @@ function ensureJson(stringOrJSON){
             
             return false;
             });
+        //preload images
+        preloadImages();        
       }
     });
   }
+
+  function preloadImages() {
+    // var arrayOfImages = $();
+    $('#portfolioImgs img').each(function(){
+      try{
+        $('')[0].src = this; //9
+        var bigImg = $(this).clone();
+        var bigImg2 = bigImg.attr('src', bigImg.attr('src').replace("t.png", ".png"));
+        $('')[0].src = bigImg2[0].src;//9
+        // Alternatively you could use:
+        // (new Image()).src = this;
+        // $('')[0].src = this;
+      }catch(e){
+        //swallow
+      }
+    });
+    // console.log('images preloaded');
+}
 
   function fancyboxize(){
       $(".fancybox").fancybox({
@@ -274,6 +352,7 @@ function ensureJson(stringOrJSON){
       loadRecommendations();
       loadPortfolio();
       loadExplore();
+      loadBlog();
       fancyboxize();
       $('.right div.jcarousel-next-vertical').change(function() {
           console.log('change');
@@ -282,6 +361,11 @@ function ensureJson(stringOrJSON){
       if ($.browser.msie && parseInt($.browser.version, 10) < maxSupportedIEVersion) {
          $('.oldIEAlert').css('display','block');
       }
+
+      $('.about').click(function(){
+        $('div.main #about').css('visibility','visible').show();
+        $('div.main #about').children().css('visibility','visible').show();
+      });
 
       mixpanel.track("Visit");
 //       var picData = [
